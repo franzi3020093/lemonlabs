@@ -24,4 +24,8 @@
 
 
 ## Farben
-<span style="color:red">wichtig</span>
+<span style="color:red">
+🔴 wichtig1
+🟡 wichtig2
+🟢 wichtig3
+</span>
