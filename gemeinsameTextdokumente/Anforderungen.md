@@ -18,13 +18,14 @@
 🔴 keine Halluzination der KI  
 🔴 Barrierefreiheit  
 🔴 Human in the loop  
+🟡 Laienverständliche Sprache  
+🟡 Benutzeranleitung  
 🟡 UX:    
 - anschauliche Benutzeroberfläche
 - minimale Latenz
 - einfache Navigation
 - geringe Hürden zum Aufruf  
-🟡 Laienverständliche Sprache  
-🟡 Benutzeranleitung  
+
 🟢 Weiterleitung an Telefonanwendung  
 
 ## Prioritäten
