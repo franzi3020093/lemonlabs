@@ -2,10 +2,10 @@
 
 ## funktionale Anforderungen
 🔴 Triage-Logik: Einstufung der Dringlichkeit   
-    -> Symptomerfassung
-    -> Red Flag Detection
-🔴 SOS-Button 
-🟡 Offline-Modus
+    -> Symptomerfassung  
+    -> Red Flag Detection  
+🔴 SOS-Button   
+🟡 Offline-Modus 
 🟡 Haftungsausschluss vor Beginn der Abfrage
 🟢 Rezept/Terminvergabe
 🟢 FHIR-Mapping: strukturierte Daten
