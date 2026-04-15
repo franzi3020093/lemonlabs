@@ -24,4 +24,4 @@
 
 
 ## Farben
-<span color="red">wichtig</span>
+<span style="color:red">wichtig</span>
