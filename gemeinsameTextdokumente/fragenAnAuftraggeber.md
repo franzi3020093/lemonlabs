@@ -23,9 +23,3 @@
 1. Wo sollte die KI laufen, lokal oder evtl. bei online Diensten über Schnittstelle
 
 
-## Farben
-<span style="color:red">
-🔴 wichtig1
-🟡 wichtig2
-🟢 wichtig3
-</span>
