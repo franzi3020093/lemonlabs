@@ -3,7 +3,8 @@
 ## Rechtliches 
 
 1. Darf die Software die Daten des Patienten speichern?  
-2. Wenn ja, wie lange? Wo? Wie viel? 
+2. Wenn ja, wie lange? Wo? Wie viel?
+3. Ist die Software für tatsächlichen Gebrauch gedacht oder als "Test" 
 
 ## Ressourcen 
 
