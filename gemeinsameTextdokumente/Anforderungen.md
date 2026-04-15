@@ -1,9 +1,9 @@
 # Anforderungen
 
 ## funktionale Anforderungen
-🔴 Triage-Logik: Einstufung der Dringlichkeit   
-    - Symptomerfassung  
-    -> Red Flag Detection  
+🔴 Triage-Logik: Einstufung der Dringlichkeit  
+- Symptomerfassung
+- Red Flag Detection  
 🔴 SOS-Button   
 🟡 Offline-Modus   
 🟡 Haftungsausschluss vor Beginn der Abfrage  
@@ -19,10 +19,10 @@
 🔴 Barrierefreiheit  
 🔴 Human in the loop  
 🟡 UX  
-  ->anschauliche Benutzeroberfläche  
-  ->minimale Latenz  
-  ->einfache Navigation  
-  ->geringe Hürden zum Aufruf  
+- anschauliche Benutzeroberfläche
+- minimale Latenz
+- einfache Navigation
+- geringe Hürden zum Aufruf  
 🟡 Laienverständliche Sprache  
 🟡 Benutzeranleitung  
 🟢 Weiterleitung an Telefonanwendung  
