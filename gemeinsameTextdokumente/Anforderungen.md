@@ -3,7 +3,8 @@
 ## funktionale Anforderungen
 🔴 Triage-Logik: Einstufung der Dringlichkeit  
 - Symptomerfassung
-- Red Flag Detection  
+- Red Flag Detection
+ 
 🔴 SOS-Button   
 🟡 Offline-Modus   
 🟡 Haftungsausschluss vor Beginn der Abfrage  
