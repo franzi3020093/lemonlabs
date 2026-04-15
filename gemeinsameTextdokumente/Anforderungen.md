@@ -1,6 +1,6 @@
 # Anforderungen
 
-## :red [funktionale Anforderungen]
+## funktionale Anforderungen
 
 
 
