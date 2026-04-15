@@ -1,6 +1,6 @@
 # Anforderungen
 
-## $${\color{red}funktionale Anforderungen}$$ funktionale Anforderungen 
+## $${\color{red} funktionale Anforderungen}$$ 
 
 
 
