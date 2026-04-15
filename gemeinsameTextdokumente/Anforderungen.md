@@ -1,7 +1,7 @@
 # Anforderungen
 
 ## funktionale Anforderungen
-🔴 Triage-Logik: Einstufung der Dringlichkeit 
+🔴 Triage-Logik: Einstufung der Dringlichkeit   
     -> Symptomerfassung
     -> Red Flag Detection
 🔴 SOS-Button 
