@@ -18,7 +18,7 @@
 🔴 keine Halluzination der KI  
 🔴 Barrierefreiheit  
 🔴 Human in the loop  
-🟡 UX  
+🟡 UX:    
 - anschauliche Benutzeroberfläche
 - minimale Latenz
 - einfache Navigation
