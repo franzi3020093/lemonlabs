@@ -1,6 +1,6 @@
 # Anforderungen
 
-## $${\color{red} funktionale Anforderungen}$$ 
+## :red[funktionale Anforderungen]
 
 
 
