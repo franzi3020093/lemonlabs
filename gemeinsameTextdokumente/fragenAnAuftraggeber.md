@@ -21,5 +21,5 @@
 ## Überlegung
 
 1. Wo sollte die KI laufen, lokal oder evtl. bei online Diensten über Schnittstelle
-
+2. Hat das Krankenhaus anonymisierte Daten, die als Wissensbasis verwendet werden könnten
 
