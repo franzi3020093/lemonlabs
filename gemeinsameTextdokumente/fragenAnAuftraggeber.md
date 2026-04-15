@@ -21,3 +21,7 @@
 ## Überlegung
 
 1. Wo sollte die KI laufen, lokal oder evtl. bei online Diensten über Schnittstelle
+
+
+## Farben
+<span color="red">wichtig</span>
