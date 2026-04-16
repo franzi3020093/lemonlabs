@@ -6,6 +6,7 @@
 - Red Flag Detection
  
 🔴 SOS-Button   
+🔴 Datenexport  
 🟡 Offline-Modus   
 🟡 Haftungsausschluss vor Beginn der Abfrage  
 🟢 Rezept/Terminvergabe  
@@ -19,7 +20,7 @@
 🔴 keine Halluzination der KI  
 🔴 Barrierefreiheit  
 🔴 Human in the loop  
-🔴 Dokumentation
+🔴 Dokumentation  
 🟡 Laienverständliche Sprache  
 🟡 Benutzeranleitung  
 🟡 UX:    
