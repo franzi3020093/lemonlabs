@@ -19,6 +19,7 @@
 🔴 keine Halluzination der KI  
 🔴 Barrierefreiheit  
 🔴 Human in the loop  
+🔴 Dokumentation
 🟡 Laienverständliche Sprache  
 🟡 Benutzeranleitung  
 🟡 UX:    
