@@ -33,6 +33,6 @@
 
 ## Prioritäten
 
-🔴 hoch 
+🔴 hoch  
 🟡 mittel  
 🟢 niedrig  
