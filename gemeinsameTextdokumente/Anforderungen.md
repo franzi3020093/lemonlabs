@@ -18,13 +18,13 @@
 ## nicht funktionale Anforderungen  
 🔴 Transparenz bei Entscheidungsfindungen  
 🔴 keine Halluzination der KI  
-🔴 Barrierefreiheit  
 🔴 Human in the loop  
-🔴 Dokumentation  
-🟡 Laienverständliche Sprache  
+🔴 Dokumentation    
 🟡 Benutzeranleitung  
 🟡 UX:    
 - anschauliche Benutzeroberfläche
+- Laienverständliche Sprache
+- Barrierefreiheit
 - minimale Latenz
 - einfache Navigation
 - geringe Hürden zum Aufruf  
@@ -33,6 +33,6 @@
 
 ## Prioritäten
 
-🔴 hoch  
+🔴 hoch 
 🟡 mittel  
 🟢 niedrig  
