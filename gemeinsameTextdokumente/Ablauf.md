@@ -4,7 +4,7 @@
    - Nutzer öffnet Webanwendung ohne Login  
 
 2. **Erste Abfrage**  
-   - Basisangaben werden erfasst (Alter, Geschlecht)  
+   - Basisangaben werden erfasst (Alter, Geschlecht -> weiblich: stillend oder schwanger)  
 
 3. **Symptomerfassung**  
    - Auswahl über Körpermodell (mehrere Körperregionen möglich)  
