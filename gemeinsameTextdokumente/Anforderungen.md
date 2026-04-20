@@ -5,9 +5,9 @@
 - Symptomerfassung
 - Red Flag Detection
  
-🔴 SOS-Button    
-🟡 Offline-Modus   
+🔴 SOS-Button      
 🟡 Haftungsausschluss vor Beginn der Abfrage  
+🟢 Offline-Modus  
 🟢 Rezept/Terminvergabe  
 🟢 FHIR-Mapping: strukturierte Daten  
 
@@ -25,7 +25,7 @@
 - Barrierefreiheit
 - minimale Latenz
 - einfache Navigation
-- geringe Hürden zum Aufruf  
+- geringe Hürden zum Aufruf   
 🟡 Benutzeranleitung  
 🟢 Weiterleitung an Telefonanwendung  
 
