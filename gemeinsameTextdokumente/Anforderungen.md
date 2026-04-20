@@ -5,8 +5,7 @@
 - Symptomerfassung
 - Red Flag Detection
  
-🔴 SOS-Button   
-🔴 Datenexport  
+🔴 SOS-Button    
 🟡 Offline-Modus   
 🟡 Haftungsausschluss vor Beginn der Abfrage  
 🟢 Rezept/Terminvergabe  
@@ -20,15 +19,14 @@
 🔴 keine Halluzination der KI  
 🔴 Human in the loop  
 🔴 Dokumentation    
-🟡 Benutzeranleitung  
-🟡 UX:    
+🔴 UX:    
 - anschauliche Benutzeroberfläche
 - Laienverständliche Sprache
 - Barrierefreiheit
 - minimale Latenz
 - einfache Navigation
 - geringe Hürden zum Aufruf  
-
+🟡 Benutzeranleitung  
 🟢 Weiterleitung an Telefonanwendung  
 
 ## Prioritäten
