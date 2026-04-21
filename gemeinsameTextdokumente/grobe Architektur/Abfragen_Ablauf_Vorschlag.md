@@ -1,5 +1,5 @@
 (Mikail Kocan)  
-## ***Red Flags:***
+## Red Flags:
 
 
 
@@ -22,7 +22,7 @@ besteht  bei Ihnen:
 
 
 
-## **Basisdaten:**
+## Basisdaten:
 
 
 
@@ -31,7 +31,7 @@ besteht  bei Ihnen:
 
 
 
-## **Hauptsymptom:**
+## Hauptsymptom:
 
 
 
@@ -40,7 +40,7 @@ besteht  bei Ihnen:
 
 
 
-## **Details:**
+## Details:
 
 
 
@@ -50,7 +50,7 @@ besteht  bei Ihnen:
 
 
 
-## **Begleitsymptome:**
+## Begleitsymptome:
 
 
 
@@ -62,7 +62,7 @@ besteht  bei Ihnen:
 
 
 
-## **Risikofaktoren:**
+## Risikofaktoren:
 
 1. bekannte Vorerkrankungen?
 2. Schwangerschaft?
