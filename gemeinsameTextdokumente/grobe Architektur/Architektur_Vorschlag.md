@@ -1,3 +1,4 @@
+(Mikail Kocan)
 # Die Softwarearchitektur
 
 ## Name des Produkts
