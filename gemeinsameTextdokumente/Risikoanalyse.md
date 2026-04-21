@@ -8,4 +8,4 @@
 
 # Legende
 
-Ausmaß(1-5) | Eintrittswahrscheinlichkeit(1-5) | Risikokenzyahl = Ausmaß * Eintrittswahrscheinlichkeit
+Ausmaß(1-5) | Eintrittswahrscheinlichkeit(1-5) | Risikokenzahl = Ausmaß * Eintrittswahrscheinlichkeit
