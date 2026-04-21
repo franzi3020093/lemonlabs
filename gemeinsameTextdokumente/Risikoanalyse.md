@@ -8,6 +8,9 @@
   -   mit der Folge mangelnden Verständnisses und extrem schwieriger Verwendung der damit erstellten Komponenten
   -   mit der Folge des Verlustes von Kundenvertrauen
 - Fehleinschätzung der benötigten Zeiten
+- Missverständniss einer Kundenanforderung
+- doppelte Arbeit auf Grund mangelnder Kommunikation
+- fehlende Arbeit auf Grund mangelnder Kommunikation
 
 
 # Legende
