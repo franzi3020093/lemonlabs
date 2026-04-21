@@ -1,6 +1,6 @@
-## Risikoanalyse
+# Risikoanalyse
 
-# Risiken
+## Risiken
 
 1. unpassende Auswahl der Software Tools auf Grund fehlender Expertise in Kombination mit Zeitdruck (Bsp.) 3 | 3 | 9  
 2. längere Abwesendheit von Team Mitgliedern auf Grund von z.B. Krankheit  
@@ -15,9 +15,9 @@
 9. fehlende Arbeit auf Grund mangelnder Kommunikation
 10. Probleme mit Schnittstellen auf Grund mangelnder Kommunikation
 
-# Vermeidungsstrategien
+## Vermeidungsstrategien
 
 
-# Legende
+## Legende
 
 Ausmaß(1-5) | Eintrittswahrscheinlichkeit(1-5) | Risikokennzahl = Ausmaß * Eintrittswahrscheinlichkeit
