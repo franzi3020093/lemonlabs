@@ -4,7 +4,7 @@
 - längere Abwesendheit von Team Mitgliedern auf Grund von z.B. Krankheit  
 - Motivationsverlust im Team  
 - Ressourcen reichen nicht für den geplanten Ablauf aus
-- Zu starke Nutzung von AI, die dazu führt, dass Dinge nicht wirklich verstanden sind
+- Zu starke Nutzung von AI, mit der Folge mangelnden Verständnisses und extrem schwieriger Verwendung der damit erstellten Komponenten
 
 
 # Legende
