@@ -25,7 +25,8 @@
 - Barrierefreiheit
 - minimale Latenz
 - einfache Navigation
-- geringe Hürden zum Aufruf   
+- geringe Hürden zum Aufruf  
+  
 🟡 Benutzeranleitung  
 🟢 Weiterleitung an Telefonanwendung  
 
