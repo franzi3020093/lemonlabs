@@ -5,8 +5,9 @@
 - Motivationsverlust im Team  
 - Ressourcen reichen nicht für den geplanten Ablauf aus
 - Zu starke Nutzung von AI
--   mit der Folge mangelnden Verständnisses und extrem schwieriger Verwendung der damit erstellten Komponenten
--   mit der Folge des Verlustes von Kundenvertrauen
+  -   mit der Folge mangelnden Verständnisses und extrem schwieriger Verwendung der damit erstellten Komponenten
+  -   mit der Folge des Verlustes von Kundenvertrauen
+- Fehleinschätzung der benötigten Zeiten
 
 
 # Legende
