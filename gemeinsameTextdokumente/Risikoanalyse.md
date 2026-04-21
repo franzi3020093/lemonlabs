@@ -8,4 +8,4 @@
 
 # Legende
 
-Ausmass(1-5) | Eintrittswahrscheinlichkeit(1-5) | Risikokennyahl = Ausmass * Eintrittswahrscheinlichkeit
+Ausmaß(1-5) | Eintrittswahrscheinlichkeit(1-5) | Risikokenzyahl = Ausmaß * Eintrittswahrscheinlichkeit
