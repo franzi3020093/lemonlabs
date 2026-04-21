@@ -13,6 +13,7 @@
 7. Missverständniss einer Kundenanforderung
 8. doppelte Arbeit auf Grund mangelnder Kommunikation
 9. fehlende Arbeit auf Grund mangelnder Kommunikation
+10. Probleme mit Schnittstellen auf Grund mangelnder Kommunikation
 
 # Vermeidungsstrategien
 
