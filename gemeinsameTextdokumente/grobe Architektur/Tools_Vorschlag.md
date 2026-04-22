@@ -4,4 +4,19 @@ All die Tools, die ich unten aufführe sind angepasst an meinen bisherigen Vorsc
 falls wir an meinem Vorschlag was ändern sollten, eventuell dementsprechend angepasst werden!
 
 - Visual Studio Code  
-- postgreSQL  
+- postgreSQL
+- React oder Next.js
+- Tailwind CSS
+- TypeScript
+-   GitHub
+-   Swagger / OpenAPI
+-   LLM API (z. B. GPT-4)
+-   Model Context Protocol (MCP)
+-   Node.js mit NestJS
+-   FHIR (JSON Standard)
+-   Figma
+-   draw.io
+-   Docker
+-   Jira
+
+
