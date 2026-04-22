@@ -24,13 +24,16 @@
 
 
 ## Vermeidungsstrategien
-3. Frustration und Probleme im Team ansprechen und gemeinsam Lösungen suchen
+3. Frustration und Probleme im Team ansprechen und gemeinsam Lösungen suchen  
 4. geplante Software evtl. austesten, Recherche
-5.1 genug Zeit für komplizierte Schritte einplanen, bei Verständnis Problemen Teammitglieder um Rat fragen
-5.2 möglichst keine KI Grafiken verwenden, keine KI Texte direkt übernehmen
-7. viel mit dem Kunden reden, Reviews möglichst aufschlussreich gestalten
-8. - 10. klare Mitteilung der Arbeitsaufteilung, häufige Nachfragen bei unklarheiten
-11. Codestücke abgrenzbar gestalten, sodass ein bestimmtes Modul auch ohne tiefes Verständnis verwendet werden kann, verständliche, ausreichende Dokumentation
+5. 5.1: genug Zeit für komplizierte Schritte einplanen, bei Verständnis Problemen Teammitglieder um Rat fragen  
+5.2: möglichst keine KI Grafiken verwenden, keine KI Texte direkt übernehmen 
+
+7. viel mit dem Kunden reden, Reviews möglichst aufschlussreich gestalten  
+8. klare Mitteilung der Arbeitsaufteilung, häufige Nachfragen bei unklarheiten
+9. ""
+10. ""
+11. Codestücke abgrenzbar gestalten, sodass ein bestimmtes Modul auch ohne tiefes Verständnis verwendet werden kann, verständliche, ausreichende Dokumentation  
 
 
 ## Legende
