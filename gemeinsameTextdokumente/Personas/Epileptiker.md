@@ -2,6 +2,7 @@
 
 **Name:** Lukas Schröder  
 **Beruf:** Mediengestalter im Home Office
+**Alter:** 27 Jahre
 
 ## Lebenssituation
 * **Diagnose:** Bekannte Epilepsie seit dem 16. Lebensjahr, medikamentös eingestellt, gelegentliche Anfälle
