@@ -17,6 +17,8 @@
 11. Wissens-Monopole: Nur eine Person versteht bestimmte Code-Teile , wenn diese fehlt, steht das ganze Projekt still.
 12. Verlust des Überblicks:  Das Team verliert sich in Details und vergisst die eigentlichen Ziele des Auftraggebers
 13. Mangelnde Dokumentation: Am Ende fehlt die Zeit für die schriftliche Ausarbeitung, was zu Punktabzug führt
+14. Komplexität von medizinischen Realdaten: Die Einarbeitung in umfangreiche Datensätze wie MIMIC-IV dauert deutlich länger als geplant, was die Modellentwicklung verzögert
+
 
     
 
