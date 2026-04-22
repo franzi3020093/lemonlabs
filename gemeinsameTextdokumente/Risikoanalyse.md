@@ -33,7 +33,9 @@
 8. klare Mitteilung der Arbeitsaufteilung, häufige Nachfragen bei unklarheiten
 9. ""
 10. ""
-11. Codestücke abgrenzbar gestalten, sodass ein bestimmtes Modul auch ohne tiefes Verständnis verwendet werden kann, verständliche, ausreichende Dokumentation  
+11. Codestücke abgrenzbar gestalten, sodass ein bestimmtes Modul auch ohne tiefes Verständnis verwendet werden kann, verständliche, ausreichende Dokumentation, verständliche Kommentierung des Codes
+13. feste Zeitblöcke definieren für die Dokumentation (5 Minuten vor Schluss oder nach jeder Arbeitseinheit)
+
 
 
 ## Legende
