@@ -1,6 +1,6 @@
 # Christian Meier
 
-
+![Picture of Chrisitan](christian.png)
 
 ### Zitat:
 „Sobald ich merke, dass irgendwas nicht mit mir stimmt muss ich sofort ausschließen, dass es etwas schlimmes sein könnte, in meinem Kopf herrscht konstant das Worstcase Scenario.“
