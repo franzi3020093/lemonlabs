@@ -14,6 +14,12 @@
 8. doppelte Arbeit auf Grund mangelnder Kommunikation
 9. fehlende Arbeit auf Grund mangelnder Kommunikation
 10. Probleme mit Schnittstellen auf Grund mangelnder Kommunikation
+11. Wissens-Monopole: Nur eine Person versteht bestimmte Code-Teile , wenn diese fehlt, steht das ganze Projekt still.
+12. Verlust des Überblicks:  Das Team verliert sich in Details und vergisst die eigentlichen Ziele des Auftraggebers
+13. Mangelnde Dokumentation: Am Ende fehlt die Zeit für die schriftliche Ausarbeitung, was zu Punktabzug führt
+
+    
+
 
 ## Vermeidungsstrategien
 
