@@ -1,7 +1,7 @@
 # Anforderungen
 
 ## funktionale Anforderungen
-🔴 Website
+🔴 Website  
 🔴 Triage-Logik: Einstufung der Dringlichkeit  
 - Symptomerfassung
 - Red Flag Detection
