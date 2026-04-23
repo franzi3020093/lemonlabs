@@ -4,7 +4,7 @@ Beruf: Lehramtsreferendar
 
 Alter: 25 Jahre
 
-Lebenssituation
+#Lebenssituation
 
 Diagnose: Keine chronischen Krankheiten, sportlich aktiv (Fußball & Laufen).
 
@@ -14,7 +14,7 @@ Persönlichkeit: Analytisch, neigt aber dazu, sich in gesundheitliche Sorgen hin
 
 Technologie-Wissen: "Digital Native", nutzt Smartwatch zur Gesundheitsüberwachung (Schlaf, Puls).
 
-Motivation und Ziele
+#Motivation und Ziele
 
 Verlässlichkeit: Jan will eine Alternative zu "Dr. Google". Er möchte eine Einschätzung, die auf medizinischen Regeln basiert und ihn nicht sofort mit Krebsdiagnosen schockiert.
 
@@ -22,7 +22,7 @@ Effizienz: Er möchte wissen, ob er sein Training pausieren muss oder ob er trot
 
 Zeitersparnis: Er möchte den Gang zum Arzt vermeiden, wenn es sich nur um Muskelkater oder Stress handelt, um sein volles Referendariatspensum zu schaffen.
 
-Pain Points
+#Pain Points
 
 Informations-Overload: Die Suche nach Symptomen im Netz führt bei ihm zu Panikattacken, da er immer das schlimmste Szenario liest.
 
@@ -30,7 +30,7 @@ Unsicherheit bei der Dringlichkeit: Er kann nicht unterscheiden, ob ein Symptom 
 
 Wartezeiten: Die Vorstellung, drei Stunden beim Hausarzt zu sitzen, nur um "Trinken Sie mehr Wasser" zu hören, frustriert ihn.
 
-Spezifische Anforderungen
+#Spezifische Anforderungen
 
 Transparente Begründung: Die Anwendung soll ihm kurz erklären, warum sie Entwarnung gibt (z. B. "Symptome deuten auf muskuläre Verspannung hin, da kein Fieber vorliegt").
 
