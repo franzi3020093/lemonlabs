@@ -17,6 +17,7 @@ body {
     background: white;
     border-radius: 16px;
     padding: 32px;
+    margin: 32px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
