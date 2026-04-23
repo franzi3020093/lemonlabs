@@ -1,7 +1,9 @@
 # Anforderungen
 
 ## funktionale Anforderungen
-🔴 Website  
+🔴 Website Frontend  
+🔴 Website Backend  
+🔴 Datenbank  
 🔴 Triage-Logik: Einstufung der Dringlichkeit  
 - Symptomerfassung
 - Red Flag Detection
@@ -19,7 +21,8 @@
 🔴 Transparenz bei Entscheidungsfindungen  
 🔴 keine Halluzination der KI  
 🔴 Human in the loop  
-🔴 Dokumentation    
+🔴 Dokumentation 
+🔴 Testen  
 🔴 UX:    
 - anschauliche Benutzeroberfläche
 - Laienverständliche Sprache
