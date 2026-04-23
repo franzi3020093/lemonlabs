@@ -11,7 +11,7 @@
 - Red Flag Detection
  
 🔴 SOS-Button      
-🟡 Haftungsausschluss vor Beginn der Abfrage  
+🟡 Hinweise und Haftungsausschluss vor Beginn der Abfrage  
 🟢 Offline-Modus  
 🟢 Rezept/Terminvergabe  
 🟢 FHIR-Mapping: strukturierte Daten  
