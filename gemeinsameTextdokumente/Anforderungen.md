@@ -21,7 +21,7 @@
 🔴 Transparenz bei Entscheidungsfindungen  
 🔴 keine Halluzination der KI  
 🔴 Human in the loop  
-🔴 Dokumentation 
+🔴 Dokumentation  
 🔴 Testen  
 🔴 UX:    
 - anschauliche Benutzeroberfläche
