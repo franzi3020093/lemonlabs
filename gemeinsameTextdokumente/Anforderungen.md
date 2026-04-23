@@ -1,8 +1,10 @@
 # Anforderungen
 
 ## funktionale Anforderungen
-🔴 Website Frontend  
-🔴 Website Backend  
+🔴 Website  
+- Frontend  
+- Backend
+  
 🔴 Datenbank  
 🔴 Triage-Logik: Einstufung der Dringlichkeit  
 - Symptomerfassung
