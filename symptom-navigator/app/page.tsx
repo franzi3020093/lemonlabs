@@ -1,9 +1,11 @@
-export default function HomePage() {
+import Link from "next/link";
+
+export default function Home() {
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#f7f9fc",
+        background: "#FFFFFF",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -19,26 +21,59 @@ export default function HomePage() {
         }}
       >
         <div
+          id="Start-Kasten"
           style={{
-            background: "white",
+            background: "#f2f8fc",
             borderRadius: "16px",
             padding: "32px",
             boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
           }}
         >
-          {/* Überschrift */}
-          <h1
+          <div
+            id="UeberschriftenUndBild"
             style={{
-              marginBottom: "16px",
-              color: "#000000",
-              fontSize: "2.2rem",
-              fontWeight: "700",
+              marginBottom: "4vh",
             }}
           >
-            KI-Symptom-Navigator
-          </h1>
+            <h1
+              style={{
+                color: "#000000",
+                fontFamily: "Arial Black, Arial, sans-serif",
+                fontSize: "4rem",
+                fontWeight: "700",
+                marginBottom: "0",
+              }}
+            >
+              MediGuide
+            </h1>
 
-          {/* Beschreibung */}
+            <h2
+              style={{
+                color: "#778899",
+                fontSize: "2rem",
+                fontWeight: "350",
+                marginTop: "-1vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+              }}
+            >
+              <span>by lemonlabs</span>
+
+              <img
+                src="/images/lemonlabslogo_blue.png"
+                alt="Lemonlabs Logo"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+            </h2>
+          </div>
+
           <p
             style={{
               marginBottom: "12px",
@@ -54,17 +89,17 @@ export default function HomePage() {
 
           <p
             style={{
-              marginBottom: "20px",
-              lineHeight: "1.6",
               color: "#000000",
-              fontSize: "1.05rem",
+              fontSize: "1rem",
+              marginBottom: "14px",
+              fontWeight: 900,
+              //WebkitTextStroke: "0.3px #000000",
             }}
           >
             Sie ersetzt keine ärztliche Diagnose und keine medizinische
             Beratung.
           </p>
 
-          {/* Warnhinweis */}
           <div
             style={{
               background: "#fff4e5",
@@ -80,7 +115,73 @@ export default function HomePage() {
             Brustschmerzen wählen Sie sofort den Notruf 112.
           </div>
 
-          {/* Buttons */}
+          <fieldset
+            style={{
+              border: "1px solid #d1d5db",
+              borderRadius: "12px",
+              padding: "18px",
+              marginBottom: "24px",
+              textAlign: "left",
+            }}
+          >
+            <legend
+              style={{
+                fontWeight: 700,
+                color: "#000000",
+                padding: "0 8px",
+              }}
+            >
+              Waren Sie wegen dieser Symptome bereits beim Arzt?
+            </legend>
+
+            <p
+              style={{
+                color: "#000000",
+                fontSize: "1rem",
+                marginBottom: "14px",
+                fontWeight: 900,
+                //WebkitTextStroke: "0.3px #000000",
+              }}
+            >
+              Diese Angabe hilft dabei, die Ersteinschätzung besser einzuordnen.
+            </p>
+
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                color: "#000000",
+                marginBottom: "10px",
+                cursor: "pointer",
+              }}
+            >
+              <input
+                type="radio"
+                name="alreadyVisitedDoctor"
+                value="true"
+              />
+              Ja, ich war bereits beim Arzt.
+            </label>
+
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                color: "#000000",
+                cursor: "pointer",
+              }}
+            >
+              <input
+                type="radio"
+                name="alreadyVisitedDoctor"
+                value="false"
+              />
+              Nein, ich war noch nicht beim Arzt.
+            </label>
+          </fieldset>
+
           <div
             style={{
               display: "flex",
@@ -89,6 +190,7 @@ export default function HomePage() {
               flexWrap: "wrap",
             }}
           >
+          <Link href="/assessment/">
             <button
               style={{
                 background: "#2563eb",
@@ -103,6 +205,7 @@ export default function HomePage() {
             >
               Ersteinschätzung starten
             </button>
+          </Link>
 
             <button
               style={{
