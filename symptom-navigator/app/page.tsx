@@ -1,4 +1,5 @@
 import { saveAlreadyVisited } from "./actions";
+import IdAnzeige from "./idAnzeige";
 
 export default function Home() {
   return (
