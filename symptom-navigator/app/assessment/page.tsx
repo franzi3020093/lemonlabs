@@ -1,4 +1,4 @@
-import { getAlreadyVisited } from "../actions";
+import { Suspense } from "react";
 import IdAnzeige from "../idAnzeige";
 import ReadDataForm from "./readDataForm";
 
@@ -51,8 +51,10 @@ export default function AssessmentPage() {
           >
             Diese Seite wird aktuell noch entwickelt.
           </p>
+          <Suspense fallback={<p style={{ color: "#000000" }}>Lade ID...</p>}>
             <IdAnzeige />
-            <ReadDataForm />
+          </Suspense>
+          <ReadDataForm />
         </div>
       </div>
     </main>
