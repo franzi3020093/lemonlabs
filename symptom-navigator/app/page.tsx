@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { saveAlreadyVisited } from './actions';
+import { saveAlreadyVisited } from "./actions";
 
 export default function Home() {
   return (
