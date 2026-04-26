@@ -18,7 +18,7 @@ export async function saveAlreadyVisited(formData: FormData) {
   console.log("getAlreadyVisited gespeichert");
   console.log(id);
 
-  redirect("/assessment");
+  redirect(`/assessment/?id=${id[0].id}`);
 }
 
 //funktion zum holen der Daten aus der DB und in eine Variable speichern
@@ -31,8 +31,8 @@ export async function getAlreadyVisited(formData: FormData) {
     ORDER BY id DESC
     LIMIT 1
   `;
-
   const alreadyVisited = DatenAusDB[0].alreadyvisited;
   console.log("Abfrageergebnis:", alreadyVisited);
-  return alreadyVisited;
+  redirect(`/assessment/?alreadyVisited=${alreadyVisited}`);
 }
+
