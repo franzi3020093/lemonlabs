@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { saveAlreadyVisited } from './actions';
 
 export default function Home() {
   return (
@@ -114,7 +115,7 @@ export default function Home() {
             Bei akuten Beschwerden wie Atemnot, Bewusstlosigkeit oder starken
             Brustschmerzen wählen Sie sofort den Notruf 112.
           </div>
-
+          <form action={saveAlreadyVisited}>
           <fieldset
             style={{
               border: "1px solid #d1d5db",
@@ -190,8 +191,8 @@ export default function Home() {
               flexWrap: "wrap",
             }}
           >
-          <Link href="/assessment/">
             <button
+              type="submit"
               style={{
                 background: "#2563eb",
                 color: "white",
@@ -205,9 +206,9 @@ export default function Home() {
             >
               Ersteinschätzung starten
             </button>
-          </Link>
 
             <button
+              type="button"
               style={{
                 background: "#dc2626",
                 color: "white",
@@ -222,6 +223,7 @@ export default function Home() {
               Notfall / 112
             </button>
           </div>
+          </form>
         </div>
       </div>
     </main>
