@@ -10,3 +10,6 @@ is:issue state:open has:sub-issue in die leiste oben bei den Issues eingeben.
 
 # Unser Link zum Ausprobieren 
 https://lemonlabs-plum.vercel.app/
+
+# Anweisungen lokal hosten
+Root folder -> Terminal öffnen -> npm install -> npm dev run
