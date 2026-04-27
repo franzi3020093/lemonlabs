@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Symptometer",
   description: "asses your symptoms",
+  manifest: "/manifest.json"
 };
 
 export default function RootLayout({
