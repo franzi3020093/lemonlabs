@@ -1,14 +1,11 @@
 import type { NextConfig } from 'next'
-
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: false,
-})
+import withPWA from "@ducanh2912/next-pwa"
 
 const nextConfig: NextConfig = {
   // Next.js configuration options go here
 }
 
-export default withPWA(nextConfig)
+export default withPWA({
+  dest: 'public',
+  register: true,
+})(nextConfig)
