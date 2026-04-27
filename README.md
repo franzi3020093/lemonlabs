@@ -12,4 +12,5 @@ is:issue state:open has:sub-issue in die leiste oben bei den Issues eingeben.
 https://lemonlabs-plum.vercel.app/
 
 # Anweisungen lokal hosten
-Root folder -> Terminal öffnen -> npm install -> npm dev run
+Root folder -> Terminal öffnen -> npm install -> npm dev run  
+falls .env nicht mitgepushe dist (was eigentlich der Fall sein sollte) funktioniert die DB Verbindung nicht, einfach nach .env fragen ist wahrscheinlich gerade die beste Lösung
