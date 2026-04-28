@@ -38,7 +38,7 @@ export async function getAlreadyVisited(prevState: any, formData: FormData) {
 }
 
 export async function sendPrompt(formData: FormData) {
-  const prompt = formData.get("textfeld")as string;
+  const prompt = formData.get("textfeld");
 
   try {
     // Make request to Ollama API
