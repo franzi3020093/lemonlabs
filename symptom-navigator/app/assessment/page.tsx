@@ -1,6 +1,7 @@
+"use client"
 import { Suspense } from "react";
-import IdAnzeige from "../idAnzeige";
 import ReadDataForm from "./readDataForm";
+import SendPromtForm from "./sendPromtForm";
 
 export default function AssessmentPage() {
   return (
@@ -51,10 +52,8 @@ export default function AssessmentPage() {
           >
             Diese Seite wird aktuell noch entwickelt.
           </p>
-          <Suspense fallback={<p style={{ color: "#000000" }}>Lade ID...</p>}>
-            <IdAnzeige />
-          </Suspense>
           <ReadDataForm />
+          <SendPromtForm />
         </div>
       </div>
     </main>
