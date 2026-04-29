@@ -1,3 +1,8 @@
+"use client"
+import { Suspense } from "react";
+import ReadDataForm from "./readDataForm";
+import SendPromtForm from "./sendPromtForm";
+
 export default function AssessmentPage() {
   return (
     <main
@@ -47,6 +52,8 @@ export default function AssessmentPage() {
           >
             Diese Seite wird aktuell noch entwickelt.
           </p>
+          <ReadDataForm />
+          <SendPromtForm />
         </div>
       </div>
     </main>
