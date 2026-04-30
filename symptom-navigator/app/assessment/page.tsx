@@ -598,40 +598,59 @@ export default function AssessmentPage() {
           <>
             <fieldset className={styles.fieldset}>
               <legend className={styles.legend}>Beschwerden</legend>
-
-              {/* Freitextfeld, wenn Freitext gewählt wurde */}
+        
+              {/* Freitextfeld */}
               {inputMode === "text" && (
-                <label className={styles.formLabel}>
-                  Beschreiben Sie Ihre Beschwerden:
-                  <textarea
-                    className={styles.input}
-                    value={symptomText}
-                    onChange={(event) => setSymptomText(event.target.value)}
-                    placeholder="Beschreiben Sie Ihre Symptome..."
-                    maxLength={1000}
-                  />
-
-                  {/* Zeichenanzeige für das 1000-Zeichen-Limit */}
-                  <span className={styles.characterCounter}>
-                    {symptomText.length}/1000 Zeichen
-                  </span>
-                </label>
+                <>
+                  <label className={styles.formLabel}>
+                    Beschreiben Sie Ihre Beschwerden:
+                    <textarea
+                      className={styles.input}
+                      value={symptomText}
+                      onChange={(event) => setSymptomText(event.target.value)}
+                      placeholder="Beschreiben Sie Ihre Symptome..."
+                      maxLength={1000}
+                    />
+        
+                    <span className={styles.characterCounter}>
+                      {symptomText.length}/1000 Zeichen
+                    </span>
+                  </label>
+        
+                  {/* 👉 NEUER BUTTON */}
+                  <button
+                    type="button"
+                    className={styles.primaryButton}
+                    onClick={() => console.log("Freitext abgeschickt:", symptomText)}
+                  >
+                    Weiter
+                  </button>
+                </>
               )}
-
-              {/* Vorläufige Auswahlfrage */}
+        
+              {/* Katzen-Frage */}
               {inputMode === "select" && (
                 <>
                   <p className={styles.text}>Hast du eine Katze?</p>
-
+        
                   <label className={styles.label}>
                     <input type="radio" name="katze" value="ja" />
                     Ja
                   </label>
-
+        
                   <label className={styles.label}>
                     <input type="radio" name="katze" value="nein" />
                     Nein
                   </label>
+        
+                  {/* 👉 NEUER BUTTON */}
+                  <button
+                    type="button"
+                    className={styles.primaryButton}
+                    onClick={() => console.log("Katze beantwortet")}
+                  >
+                    Weiter
+                  </button>
                 </>
               )}
             </fieldset>
