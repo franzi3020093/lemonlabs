@@ -258,3 +258,7 @@ Als Nutzer möchte ich Daten offline speichern können.
 Als Nutzer möchte ich die Anwendung installieren können.  
 **Akzeptanzkriterium:** Installation über Browser möglich  
 **Priorität:** niedrig  
+
+## Legende
+FA = Funktionale Anforderung (beschreibt konkrete Funktionen des Systems)  
+NFA = Nicht funktionale Anforderung (beschreibt Qualitätsmerkmale wie Usability oder Performance)  
