@@ -1,148 +1,270 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./Assessment.module.css";
 
-type Step = "redflags" | "basisStart" | "bodyRegion" | "basisDetails";
+/* 
+  Step beschreibt, auf welchem Abschnitt der Ersteinschätzung
+  sich die Nutzerin oder der Nutzer gerade befindet.
+*/
+type Step =
+  | "redflags"
+  | "basisStart"
+  | "bodyRegion"
+  | "symptomChoice"
+  | "symptomInput"
+  | "basisDetails"
+  | "result";
 
-type Region =
-  | "Kopf"
-  | "Hals"
+type MainRegion =
+  | "Kopf & Gesicht"
+  | "Hals & Nacken"
   | "Brust"
   | "Bauch"
   | "Rücken"
-  | "Arm / Hand"
-  | "Bein / Fuß"
-  | "Haut"
-  | "Allgemeine Beschwerden";
+  | "Becken & Unterleib"
+  | "Arme & Hände"
+  | "Beine & Füße"
+  | "Haut (gesamt)"
+  | "Allgemein (ganzer Körper)";
+
+type SubRegion =
+  | "Kopf"
+  | "Augen"
+  | "Ohren"
+  | "Nase"
+  | "Mund / Zähne"
+  | "Hals"
+  | "Nacken"
+  | "Brust links"
+  | "Brust rechts"
+  | "Oberbauch"
+  | "Unterbauch"
+  | "Rücken oben"
+  | "Rücken unten"
+  | "Becken"
+  | "Genitalbereich"
+  | "Schulter"
+  | "Oberarm"
+  | "Unterarm"
+  | "Hand"
+  | "Oberschenkel"
+  | "Knie"
+  | "Unterschenkel"
+  | "Fuß"
+  | "Haut allgemein"
+  | "Keine bestimmte Region / mehrere Stellen";
+
+type InputMode = "text" | "select" | null;
+
+const emptyRedFlags = {
+  chestPain: false,
+  breathingProblems: false,
+  unconsciousness: false,
+  severeBleeding: false,
+  strokeSymptoms: false,
+  highFeverConfusion: false,
+};
 
 export default function AssessmentPage() {
   const [step, setStep] = useState<Step>("redflags");
+  const [redFlags, setRedFlags] = useState(emptyRedFlags);
+  const [noRedFlags, setNoRedFlags] = useState(false);
 
-  const [redFlags, setRedFlags] = useState({
-    chestPain: false,
-    breathingProblems: false,
-    unconsciousness: false,
-    severeBleeding: false,
-    strokeSymptoms: false,
-    highFeverConfusion: false,
-  });
+  const [selectedMainRegion, setSelectedMainRegion] =
+    useState<MainRegion | null>(null);
+
+  const [selectedSubRegion, setSelectedSubRegion] =
+    useState<SubRegion | null>(null);
+
+  const [inputMode, setInputMode] = useState<InputMode>(null);
+  const [symptomText, setSymptomText] = useState("");
+  const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
+  const [catAnswer, setCatAnswer] = useState("");
 
   const [basisData, setBasisData] = useState({
     age: "",
     gender: "",
-    pregnantOrBreastfeeding: "",
-    preExistingConditions: "",
-    regularMedication: "",
-    symptomStart: "",
-    symptomStrength: "",
-    generalCondition: "",
+    pregnancy: "",
+    duration: "",
+    intensity: "0",
   });
 
-  const [selectedRegion, setSelectedRegion] = useState<Region | "">("");
+  const hasEmergency = Object.values(redFlags).some(Boolean);
 
-  const handleRedFlagChange = (key: keyof typeof redFlags) => {
-    setRedFlags((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
+  function updateRedFlag(key: keyof typeof redFlags, checked: boolean) {
+    setRedFlags({
+      ...redFlags,
+      [key]: checked,
+    });
 
-  const isEmergency = Object.values(redFlags).some(Boolean);
+    setNoRedFlags(false);
+  }
+
+  function selectNoRedFlags(checked: boolean) {
+    setNoRedFlags(checked);
+
+    if (checked) {
+      setRedFlags(emptyRedFlags);
+    }
+  }
+
+  function selectMainRegion(region: MainRegion) {
+    setSelectedMainRegion(region);
+    setSelectedSubRegion(null);
+    setInputMode(null);
+    setSymptomText("");
+    setSelectedSymptoms([]);
+  }
+
+  function selectSubRegion(region: SubRegion) {
+    setSelectedSubRegion(region);
+  }
+
+  function continueAfterRegionSelection() {
+    setStep("symptomChoice");
+  }
+
+  function toggleSymptom(symptom: string) {
+    setSelectedSymptoms((previousSymptoms) =>
+      previousSymptoms.includes(symptom)
+        ? previousSymptoms.filter((item) => item !== symptom)
+        : [...previousSymptoms, symptom]
+    );
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = {
+      redFlags,
+      noRedFlags,
+      selectedMainRegion,
+      selectedSubRegion,
+      inputMode,
+      symptomText,
+      selectedSymptoms,
+      catAnswer,
+      basisData,
+    };
+
+    console.log("Formulardaten:", formData);
+    setStep("result");
+  }
 
   return (
     <main className={styles.main}>
-      <form className={styles.card} onSubmit={(e) => e.preventDefault()}>
+      <form className={styles.card} onSubmit={handleSubmit}>
         <h1 className={styles.title}>Ersteinschätzung</h1>
 
         {step === "redflags" && (
           <>
             <p className={styles.text}>
-              Bitte beantworten Sie zuerst die folgenden Sicherheitsfragen.
+              Bitte prüfen Sie zuerst, ob akute Warnzeichen vorliegen.
             </p>
 
             <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>
-                Trifft eines der folgenden Symptome zu?
-              </legend>
+              <legend className={styles.legend}>Warnzeichen</legend>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.chestPain}
-                  onChange={() => handleRedFlagChange("chestPain")}
+                  onChange={(event) =>
+                    updateRedFlag("chestPain", event.target.checked)
+                  }
                 />
-                Starke Brustschmerzen oder Druck auf der Brust
+                Starke Brustschmerzen
               </label>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.breathingProblems}
-                  onChange={() => handleRedFlagChange("breathingProblems")}
+                  onChange={(event) =>
+                    updateRedFlag("breathingProblems", event.target.checked)
+                  }
                 />
-                Atemnot oder schwere Atemprobleme
+                Atemnot oder starke Atemprobleme
               </label>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.unconsciousness}
-                  onChange={() => handleRedFlagChange("unconsciousness")}
+                  onChange={(event) =>
+                    updateRedFlag("unconsciousness", event.target.checked)
+                  }
                 />
-                Bewusstlosigkeit oder starke Verwirrtheit
+                Bewusstlosigkeit oder starke Benommenheit
               </label>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.severeBleeding}
-                  onChange={() => handleRedFlagChange("severeBleeding")}
+                  onChange={(event) =>
+                    updateRedFlag("severeBleeding", event.target.checked)
+                  }
                 />
-                Starke, nicht stoppbare Blutung
+                Starke Blutung
               </label>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.strokeSymptoms}
-                  onChange={() => handleRedFlagChange("strokeSymptoms")}
+                  onChange={(event) =>
+                    updateRedFlag("strokeSymptoms", event.target.checked)
+                  }
                 />
-                Lähmung, Sprachprobleme oder Verdacht auf Schlaganfall
+                Lähmung, Sprachstörung oder Verdacht auf Schlaganfall
               </label>
 
               <label className={styles.label}>
                 <input
                   type="checkbox"
                   checked={redFlags.highFeverConfusion}
-                  onChange={() => handleRedFlagChange("highFeverConfusion")}
+                  onChange={(event) =>
+                    updateRedFlag("highFeverConfusion", event.target.checked)
+                  }
                 />
-                Hohes Fieber mit Wesensveränderung oder Verwirrtheit
+                Hohes Fieber mit Verwirrtheit
+              </label>
+
+              <label className={styles.label}>
+                <input
+                  type="checkbox"
+                  checked={noRedFlags}
+                  onChange={(event) => selectNoRedFlags(event.target.checked)}
+                />
+                Keines davon trifft zu
               </label>
             </fieldset>
 
-            {isEmergency ? (
+            {hasEmergency && (
               <div className={styles.emergencyBox}>
-                <h2 className={styles.emergencyTitle}>
-                  ⚠️ Möglicher Notfall
-                </h2>
+                <h2 className={styles.emergencyTitle}>Notfallhinweis</h2>
 
                 <p>
-                  Ihre Angaben deuten auf einen möglichen medizinischen Notfall
-                  hin. Bitte wählen Sie sofort den Notruf.
+                  Bei diesen Beschwerden sollten Sie sofort den Notruf wählen.
                 </p>
 
                 <a href="tel:112" className={styles.emergencyButton}>
-                  Notruf 112 wählen
+                  112 anrufen
                 </a>
               </div>
-            ) : (
+            )}
+
+            {!hasEmergency && (
               <button
                 type="button"
-                onClick={() => setStep("basisStart")}
                 className={styles.primaryButton}
+                onClick={() => setStep("basisStart")}
+                disabled={!noRedFlags}
               >
-                Weiter mit der Ersteinschätzung
+                Weiter
               </button>
             )}
           </>
@@ -151,66 +273,67 @@ export default function AssessmentPage() {
         {step === "basisStart" && (
           <>
             <p className={styles.text}>
-              Bitte geben Sie zunächst einige grundlegende Angaben an.
+              Bitte machen Sie zuerst einige allgemeine Angaben.
             </p>
 
             <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>Grundangaben</legend>
+              <legend className={styles.legend}>Allgemeine Angaben</legend>
 
               <label className={styles.formLabel}>
                 Alter
                 <input
+                  className={styles.input}
                   type="number"
                   min="0"
-                  max="120"
                   value={basisData.age}
-                  onChange={(e) =>
-                    setBasisData({ ...basisData, age: e.target.value })
+                  onChange={(event) =>
+                    setBasisData({ ...basisData, age: event.target.value })
                   }
-                  placeholder="z. B. 27"
-                  className={styles.input}
+                  placeholder="Zum Beispiel: 25"
                 />
               </label>
 
               <label className={styles.formLabel}>
                 Geschlecht
                 <select
+                  className={styles.input}
                   value={basisData.gender}
-                  onChange={(e) =>
+                  onChange={(event) =>
                     setBasisData({
                       ...basisData,
-                      gender: e.target.value,
-                      pregnantOrBreastfeeding: "",
+                      gender: event.target.value,
+                      pregnancy:
+                        event.target.value === "weiblich"
+                          ? basisData.pregnancy
+                          : "",
                     })
                   }
-                  className={styles.input}
                 >
                   <option value="">Bitte auswählen</option>
-                  <option value="female">Weiblich</option>
-                  <option value="male">Männlich</option>
-                  <option value="diverse">Divers</option>
-                  <option value="noAnswer">Keine Angabe</option>
+                  <option value="weiblich">Weiblich</option>
+                  <option value="männlich">Männlich</option>
+                  <option value="divers">Divers</option>
+                  <option value="keine Angabe">Keine Angabe</option>
                 </select>
               </label>
 
-              {basisData.gender === "female" && (
+              {basisData.gender === "weiblich" && (
                 <label className={styles.formLabel}>
-                  Sind Sie schwanger oder stillend?
+                  Schwangerschaft oder Stillzeit
                   <select
-                    value={basisData.pregnantOrBreastfeeding}
-                    onChange={(e) =>
+                    className={styles.input}
+                    value={basisData.pregnancy}
+                    onChange={(event) =>
                       setBasisData({
                         ...basisData,
-                        pregnantOrBreastfeeding: e.target.value,
+                        pregnancy: event.target.value,
                       })
                     }
-                    className={styles.input}
                   >
                     <option value="">Bitte auswählen</option>
-                    <option value="pregnant">Schwanger</option>
-                    <option value="breastfeeding">Stillend</option>
-                    <option value="no">Nein</option>
-                    <option value="unknown">Unsicher</option>
+                    <option value="ja">Ja</option>
+                    <option value="nein">Nein</option>
+                    <option value="keine Angabe">Keine Angabe</option>
                   </select>
                 </label>
               )}
@@ -218,10 +341,15 @@ export default function AssessmentPage() {
 
             <button
               type="button"
-              onClick={() => setStep("bodyRegion")}
               className={styles.primaryButton}
+              onClick={() => setStep("bodyRegion")}
+              disabled={
+                !basisData.age ||
+                !basisData.gender ||
+                (basisData.gender === "weiblich" && !basisData.pregnancy)
+              }
             >
-              Weiter zur Körperregion-Auswahl
+              Weiter zur Körperregion
             </button>
           </>
         )}
@@ -229,272 +357,166 @@ export default function AssessmentPage() {
         {step === "bodyRegion" && (
           <>
             <p className={styles.text}>
-              Bitte tippen Sie auf die Körperregion, in der Ihre Beschwerden
-              auftreten.
+              Klicken Sie auf eine Hauptregion und wählen Sie danach die
+              passende Unterregion aus.
             </p>
 
             <div className={styles.bodyWrapper}>
-              <img
-                src="/images/body-image.png"
-                alt="Menschlicher Körper zur Auswahl der Körperregion"
-                className={styles.bodyImage}
-              />
-
-              <RegionHotspot
-                label="Kopf"
-                region="Kopf"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="5%"
-                left="50%"
-              />
-
-              <RegionHotspot
-                label="Hals"
-                region="Hals"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="18%"
-                left="50%"
-              />
-
-              <RegionHotspot
-                label="Brust"
-                region="Brust"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="31%"
-                left="50%"
-              />
-
-              <RegionHotspot
-                label="Bauch"
-                region="Bauch"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="45%"
-                left="50%"
-              />
-
-              <RegionHotspot
-                label="Arm"
-                region="Arm / Hand"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="38%"
-                left="22%"
-              />
-
-              <RegionHotspot
-                label="Arm"
-                region="Arm / Hand"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="38%"
-                left="78%"
-              />
-
-              <RegionHotspot
-                label="Beine"
-                region="Bein / Fuß"
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
-                top="72%"
-                left="50%"
-              />
+              <p className={styles.selectedText}>Noch in Bearbeitung</p>
             </div>
-
-            <div className={styles.quickSelect}>
-              {(["Haut", "Allgemeine Beschwerden"] as Region[]).map(
-                (region) => (
-                  <button
-                    key={region}
-                    type="button"
-                    onClick={() => setSelectedRegion(region)}
-                    className={`${styles.regionButton} ${
-                      selectedRegion === region ? styles.selectedRegion : ""
-                    }`}
-                  >
-                    {region}
-                  </button>
-                )
-              )}
-            </div>
-
-            {selectedRegion && (
-              <div className={styles.resultBox}>
-                <p className={styles.selectedText}>
-                  Ausgewählte Körperregion: {selectedRegion}
-                </p>
-
-                <button
-                  type="button"
-                  onClick={() => setStep("basisDetails")}
-                  className={styles.continueButton}
-                >
-                  Weiter zu den Zusatzfragen
-                </button>
-              </div>
-            )}
-          </>
-        )}
-
-        {step === "basisDetails" && (
-          <>
-            <p className={styles.text}>
-              Diese zusätzlichen Angaben sind optional und helfen dabei, die
-              Ersteinschätzung genauer einzuordnen.
-            </p>
-
-            <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>
-                Zusätzliche Informationen
-              </legend>
-
-              <label className={styles.formLabel}>
-                Haben Sie relevante Vorerkrankungen?
-                <select
-                  value={basisData.preExistingConditions}
-                  onChange={(e) =>
-                    setBasisData({
-                      ...basisData,
-                      preExistingConditions: e.target.value,
-                    })
-                  }
-                  className={styles.input}
-                >
-                  <option value="">Überspringen</option>
-                  <option value="no">Nein</option>
-                  <option value="yes">Ja</option>
-                  <option value="unknown">Unsicher</option>
-                </select>
-              </label>
-
-              <label className={styles.formLabel}>
-                Nehmen Sie regelmäßig Medikamente ein?
-                <select
-                  value={basisData.regularMedication}
-                  onChange={(e) =>
-                    setBasisData({
-                      ...basisData,
-                      regularMedication: e.target.value,
-                    })
-                  }
-                  className={styles.input}
-                >
-                  <option value="">Überspringen</option>
-                  <option value="no">Nein</option>
-                  <option value="yes">Ja</option>
-                  <option value="unknown">Unsicher</option>
-                </select>
-              </label>
-
-              <label className={styles.formLabel}>
-                Seit wann bestehen die Beschwerden?
-                <select
-                  value={basisData.symptomStart}
-                  onChange={(e) =>
-                    setBasisData({
-                      ...basisData,
-                      symptomStart: e.target.value,
-                    })
-                  }
-                  className={styles.input}
-                >
-                  <option value="">Überspringen</option>
-                  <option value="minutes_hours">Seit Minuten / Stunden</option>
-                  <option value="today">Seit heute</option>
-                  <option value="days">Seit mehreren Tagen</option>
-                  <option value="longer">Schon länger</option>
-                </select>
-              </label>
-
-              <label className={styles.formLabel}>
-                Wie stark sind die Beschwerden? (1 = leicht, 10 = sehr stark)
-                <input
-                  type="number"
-                  min="1"
-                  max="10"
-                  value={basisData.symptomStrength}
-                  onChange={(e) =>
-                    setBasisData({
-                      ...basisData,
-                      symptomStrength: e.target.value,
-                    })
-                  }
-                  placeholder="Optional: 1 bis 10"
-                  className={styles.input}
-                />
-              </label>
-
-              <label className={styles.formLabel}>
-                Fühlen Sie sich insgesamt stark beeinträchtigt?
-                <select
-                  value={basisData.generalCondition}
-                  onChange={(e) =>
-                    setBasisData({
-                      ...basisData,
-                      generalCondition: e.target.value,
-                    })
-                  }
-                  className={styles.input}
-                >
-                  <option value="">Überspringen</option>
-                  <option value="no">Nein</option>
-                  <option value="yes">Ja</option>
-                  <option value="unknown">Unsicher</option>
-                </select>
-              </label>
-            </fieldset>
 
             <button
               type="button"
               className={styles.primaryButton}
-              onClick={() => {
-                console.log({
-                  redFlags,
-                  basisData,
-                  selectedRegion,
-                });
-              }}
+              onClick={continueAfterRegionSelection}
             >
-              Auswertung starten
+              Weiter
             </button>
           </>
         )}
+
+        {step === "symptomChoice" && (
+          <>
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>
+                Wie möchten Sie Ihre Beschwerden angeben?
+              </legend>
+
+              <div className={styles.quickSelect}>
+                <button
+                  type="button"
+                  className={styles.regionButton}
+                  onClick={() => {
+                    setInputMode("text");
+                    setStep("symptomInput");
+                  }}
+                >
+                  Freitext eingeben
+                </button>
+
+                <button
+                  type="button"
+                  className={styles.regionButton}
+                  onClick={() => {
+                    setInputMode("select");
+                    setStep("symptomInput");
+                  }}
+                >
+                  Symptome auswählen
+                </button>
+              </div>
+            </fieldset>
+          </>
+        )}
+
+        {step === "symptomInput" && (
+          <>
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>Beschwerden</legend>
+
+              {inputMode === "text" && (
+                <>
+                  <label className={styles.formLabel}>
+                    Beschreiben Sie Ihre Beschwerden:
+                    <textarea
+                      className={styles.input}
+                      value={symptomText}
+                      onChange={(event) => setSymptomText(event.target.value)}
+                      placeholder="Beschreiben Sie Ihre Symptome..."
+                      maxLength={1000}
+                    />
+
+                    <span className={styles.characterCounter}>
+                      {symptomText.length}/1000 Zeichen
+                    </span>
+                  </label>
+
+                  <button
+                    type="button"
+                    className={styles.primaryButton}
+                    onClick={() => {
+                      console.log("Freitext abgeschickt:", symptomText);
+                      setStep("result");
+                    }}
+                    disabled={symptomText.trim().length === 0}
+                  >
+                    Freitext abschicken
+                  </button>
+                </>
+              )}
+
+              {inputMode === "select" && (
+                <>
+                  <p className={styles.text}>Besitzt du eine Hauskatze?</p>
+
+                  <div className={styles.quickSelect}>
+                    <button
+                      type="button"
+                      className={styles.regionButton}
+                      onClick={() => {
+                        setCatAnswer("ja");
+                        console.log("Hauskatze:", "ja");
+                        setStep("result");
+                      }}
+                    >
+                      Ja
+                    </button>
+
+                    <button
+                      type="button"
+                      className={styles.regionButton}
+                      onClick={() => {
+                        setCatAnswer("nein");
+                        console.log("Hauskatze:", "nein");
+                        setStep("result");
+                      }}
+                    >
+                      Nein
+                    </button>
+                  </div>
+                </>
+              )}
+            </fieldset>
+          </>
+        )}
+
+        {step === "result" && (
+          <div className={styles.resultBox}>
+            <p className={styles.selectedText}>Ihre Angaben wurden erfasst.</p>
+
+            <p>
+              Alter: <strong>{basisData.age}</strong>
+            </p>
+
+            <p>
+              Geschlecht: <strong>{basisData.gender}</strong>
+            </p>
+
+            {basisData.gender === "weiblich" && (
+              <p>
+                Schwangerschaft oder Stillzeit:{" "}
+                <strong>{basisData.pregnancy}</strong>
+              </p>
+            )}
+
+            {inputMode === "text" && (
+              <p>
+                Beschreibung: <strong>{symptomText}</strong>
+              </p>
+            )}
+
+            {inputMode === "select" && (
+              <p>
+                Hauskatze: <strong>{catAnswer}</strong>
+              </p>
+            )}
+
+            <Link href="/" className={styles.continueButton}>
+              Zur Startseite
+            </Link>
+          </div>
+        )}
       </form>
     </main>
-  );
-}
-
-type RegionHotspotProps = {
-  label: string;
-  region: Region;
-  selectedRegion: Region | "";
-  setSelectedRegion: (region: Region) => void;
-  top: string;
-  left: string;
-};
-
-function RegionHotspot({
-  label,
-  region,
-  selectedRegion,
-  setSelectedRegion,
-  top,
-  left,
-}: RegionHotspotProps) {
-  const selected = selectedRegion === region;
-
-  return (
-    <button
-      type="button"
-      aria-label={`Körperregion ${region} auswählen`}
-      onClick={() => setSelectedRegion(region)}
-      className={`${styles.hotspot} ${selected ? styles.selectedHotspot : ""}`}
-      style={{ top, left }}
-    >
-      {label}
-    </button>
   );
 }
