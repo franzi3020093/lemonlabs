@@ -21,6 +21,6 @@
 * **QR-Code Validierung:** Wir verifizieren die fehlerfreie Erstellung des QR-Exports für die Datenübergabe an das medizinische Fachpersonal.
 
 ## Interne Governance und Review-Prozesse
-* **Vier-Augen-Prinzip:** Wir unterziehen alle sicherheitskritischen Programmteile einer obligatorischen Prüfung durch ein zweites Teammitglied.
+* **Vier-Augen-Prinzip:** Wir unterziehen alle sicherheitskritischen Programmteile einer verpflichtenden Prüfung durch ein zweites Teammitglied.
 * **AI-Code-Auditing:** Wir prüfen alle durch KI-Tools generierten Code-Bausteine auf ihre logische Korrektheit und Wartbarkeit.
 * **Dokumentationspflicht:** Wir führen lückenlose Nachweise über alle Validierung
