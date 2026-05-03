@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./Assessment.module.css";
+import { useSaveForm } from "./useSaveForm"; // import the useSaveForm to call the saveFormData function
 
 /* 
   Step beschreibt, auf welchem Abschnitt der Ersteinschätzung
@@ -437,6 +438,9 @@ export default function AssessmentPage() {
                     onClick={() => {
                       console.log("Freitext abgeschickt:", symptomText);
                       setStep("result");
+                      // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
+                      const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
+                      handleSaveForm();  
                     }}
                     disabled={symptomText.trim().length === 0}
                   >
@@ -457,6 +461,9 @@ export default function AssessmentPage() {
                         setCatAnswer("ja");
                         console.log("Hauskatze:", "ja");
                         setStep("result");
+                        // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
+                        const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
+                        handleSaveForm();  
                       }}
                     >
                       Ja
@@ -469,6 +476,9 @@ export default function AssessmentPage() {
                         setCatAnswer("nein");
                         console.log("Hauskatze:", "nein");
                         setStep("result");
+                        // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
+                        const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
+                        handleSaveForm();  
                       }}
                     >
                       Nein
