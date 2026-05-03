@@ -10,7 +10,7 @@ import { NextResponse } from 'next/server'; // for redirecting and returning jso
 export async function saveFormData(formData: FormData, redFlags: any, selectedRegion: any) {
 
     // form data is saved in variables and converted to the correct type
-    const birthYear = new Date().getFullYear() - parseInt(formData.get("age") as string);
+    const age = parseInt(formData.get("age") as string);
 
     //test log
     console.log("test:", formData.toString());
@@ -23,12 +23,12 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     // schreiben der Daten in die DB und return der ID zum Abruf auf assesment
     const dbReturn = await connectionPool.query(
         `
-        Insert into cases (birth_year)
+        Insert into cases (age)
         VALUES ($1)
 
         returning patient_id
         `,
-        [birthYear]
+        [age]
     );
 
     // test logs
