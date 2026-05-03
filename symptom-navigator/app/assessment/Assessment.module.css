@@ -1,3 +1,5 @@
+/* ================= Grundlayout der Assessment-Seite ================= */
+
 .main {
   min-height: 100vh;
   background: #ffffff;
@@ -8,11 +10,10 @@
   padding: 24px 12px;
 }
 
-/* ================= CARD ================= */
-
+/* Zentrale Formular-Karte */
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
   background: #f2f8fc;
   border-radius: 16px;
   padding: clamp(18px, 4vw, 32px);
@@ -21,7 +22,7 @@
   box-sizing: border-box;
 }
 
-/* ================= TYPO ================= */
+/* ================= Typografie ================= */
 
 .title {
   color: #000000;
@@ -38,7 +39,15 @@
   margin-bottom: 20px;
 }
 
-/* ================= FORM ================= */
+.selectedText {
+  margin: 18px 0 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  color: #000000;
+}
+
+/* ================= Formularbereiche ================= */
 
 .fieldset {
   border: 1px solid #d1d5db;
@@ -56,7 +65,6 @@
   padding: 0 8px;
 }
 
-/* Checkbox Labels */
 .label {
   display: flex;
   align-items: flex-start;
@@ -68,7 +76,6 @@
   font-size: 0.98rem;
 }
 
-/* Input Gruppen */
 .formLabel {
   display: flex;
   flex-direction: column;
@@ -86,9 +93,29 @@
   border: 1px solid #d1d5db;
   font-size: 1rem;
   box-sizing: border-box;
+  background: #ffffff;
+  color: #000000;
 }
 
-/* ================= BUTTONS ================= */
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+textarea.input {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.characterCounter {
+  color: #4b5563;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* ================= Buttons ================= */
 
 .primaryButton {
   background: #2563eb;
@@ -101,11 +128,19 @@
   font-weight: 600;
   width: 100%;
   max-width: 320px;
-  margin-top: 10px;
+  margin-top: 18px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .primaryButton:hover {
   background: #1e4fd1;
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .emergencyBox {
@@ -115,6 +150,7 @@
   border-radius: 12px;
   margin-bottom: 20px;
   line-height: 1.6;
+  border: 1px solid #fecaca;
 }
 
 .emergencyTitle {
@@ -135,50 +171,66 @@
   width: 100%;
   max-width: 280px;
   box-sizing: border-box;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-/* ================= BODY MAP ================= */
+.emergencyButton:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
 
+/* ================= Interaktive Körperkarte ================= */
+
+/* Container für die SVG-Körperkarte */
 .bodyWrapper {
-  position: relative;
   width: 100%;
-  max-width: 280px;
-  margin: 22px auto 0;
+  max-width: 340px;
+  margin: 24px auto;
   background: #ffffff;
-  border-radius: 16px;
-  padding: 14px;
-  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
 }
 
-.bodyImage {
+/* SVG-Größe */
+.bodyMap {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Hotspots auf dem Körper */
-.hotspot {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.95);
-  color: #000;
-  border: 2px solid #0078bf;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
+/* Normale Körperteile */
+.bodyPart {
+  fill: #f2c7a5;
+  stroke: #c89b7b;
+  stroke-width: 2.5;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  white-space: nowrap;
+  transition: fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
 }
 
-.hotspot:hover {
-  background: #0078bf;
-  color: white;
+/* Hover-Effekt: wird beim Darüberfahren orange */
+.bodyPart:hover {
+  fill: #fb923c;
+  stroke: #ea580c;
+  filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.45));
 }
 
-/* ================= QUICK SELECT (Haut / Allgemeine Beschwerden) ================= */
+/* Ausgewähltes Körperteil: bleibt nach dem Klick orange */
+.selectedBodyPart {
+  fill: #f97316;
+  stroke: #c2410c;
+  filter: drop-shadow(0 0 7px rgba(249, 115, 22, 0.55));
+}
+
+/* Wenn ausgewählt und Hover gleichzeitig aktiv ist */
+.selectedBodyPart:hover {
+  fill: #f97316;
+  stroke: #c2410c;
+}
+
+/* ================= Schnell-Auswahl ================= */
 
 .quickSelect {
   display: flex;
@@ -198,21 +250,23 @@
   font-weight: 600;
   text-align: center;
   width: 100%;
-  transition: background 0.2s ease, border 0.2s ease;
+  transition: background 0.2s ease, border 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .regionButton:hover {
   background: #e6f2fb;
   border-color: #0078bf;
+  transform: translateY(-1px);
 }
 
 .selectedRegion {
-  background: #0078bf;
+  background: #f97316;
   color: #ffffff;
-  border-color: #0078bf;
+  border-color: #f97316;
 }
 
-/* ================= RESULT BOX ================= */
+/* ================= Ergebnisbereich ================= */
 
 .resultBox {
   margin-top: 24px;
@@ -228,11 +282,9 @@
   align-items: center;
 }
 
-.selectedText {
+.resultBox p {
   margin: 0;
-  font-weight: 700;
-  font-size: 1.05rem;
-  text-align: center;
+  line-height: 1.5;
 }
 
 .continueButton {
@@ -246,20 +298,18 @@
   font-weight: 600;
   width: 100%;
   max-width: 280px;
-  transition: background 0.2s ease;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .continueButton:hover {
   background: #1e4fd1;
+  transform: translateY(-1px);
 }
 
-/* ================= MOBILE FIX ================= */
+/* ================= Mobile Ansicht ================= */
 
 @media (max-width: 600px) {
-  .main {
-    padding: 24px 12px;
-  }
-
   .card {
     padding: 20px;
   }
@@ -268,9 +318,9 @@
     font-size: 2rem;
   }
 
-  .hotspot {
-    font-size: 0.7rem;
-    padding: 5px 8px;
+  .bodyWrapper {
+    max-width: 320px;
+    padding: 12px;
   }
 
   .quickSelect {
@@ -284,6 +334,17 @@
   .resultBox {
     padding: 18px;
   }
+
+
+
+  .slider {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .sliderHint {
+    color: #4b5563;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
 }
-
-
