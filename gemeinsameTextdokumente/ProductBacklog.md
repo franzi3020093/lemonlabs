@@ -211,6 +211,21 @@ Als Nutzer möchte ich zu Beginn auswählen können, welche Funktion ich nutzen 
 **Akzeptanzkriterium:** Auswahl zwischen Symptomerfassung und anderen Anliegen wird angezeigt  
 **Priorität:** hoch  
 
+### FA 000 – Support kontaktieren
+Als Nutzer möchte ich eine Möglichkeit haben, Support zu kontaktieren oder Fehler zu melden, damit ich Probleme melden kann.  
+**Akzeptanzkriterium:** Kontaktmöglichkeit ist vorhanden, Anfrage kann übermittelt werden  
+**Priorität:** niedrig  
+
+### FA 000 – Datenschutzerklärung anzeigen
+Als Nutzer möchte ich eine Datenschutzerklärung einsehen können, damit ich weiß, wie meine Daten verwendet werden.  
+**Akzeptanzkriterium:** Datenschutzerklärung ist jederzeit abrufbar, Inhalte sind verständlich formuliert  
+**Priorität:** hoch  
+
+### FA 000 – Impressum anzeigen
+Als Nutzer möchte ich ein Impressum einsehen können, damit ich weiß, wer für die Anwendung verantwortlich ist.  
+**Akzeptanzkriterium:** Impressum ist jederzeit erreichbar, gesetzlich erforderliche Angaben sind enthalten  
+**Priorität:** hoch  
+
 ### NFA 001 – Intuitive Bedienbarkeit
 Als Nutzer möchte ich die Anwendung einfach bedienen können.  
 **Akzeptanzkriterium:** Navigation ist selbsterklärend  
@@ -250,6 +265,11 @@ Als Nutzer möchte ich eine visuell ansprechende Oberfläche haben, damit ich di
 Als Nutzer möchte ich Inhalte durch Icons unterstützt sehen, damit ich Informationen schneller verstehe.  
 **Akzeptanzkriterium:** wichtige Funktionen werden durch verständliche Icons ergänzt  
 **Priorität:** niedrig  
+
+### FA 000 – Allgemeine Unsicherheiten anzeigen
+Als Nutzer möchte ich über die generellen Unsicherheiten und Grenzen der Anwendung informiert werden, damit ich die Einschätzung richtig einordnen kann.  
+**Akzeptanzkriterium:** Hinweis zu Unsicherheiten ist jederzeit abrufbar, Inhalte sind verständlich formuliert und weisen darauf hin, dass keine medizinische Diagnose ersetzt wird  
+**Priorität:** hoch  
 
 ## Epic: Interoperabilität (mittlere Priorität)
 
