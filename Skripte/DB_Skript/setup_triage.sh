@@ -45,7 +45,7 @@ CREATE TABLE assessments (
 	assessment_id SERIAL PRIMARY KEY, 
 	case_id INTEGER REFERENCES cases(case_id) ON DELETE CASCADE,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	raw_input TEXT
+	raw_input TEXT,
 	access_code INTEGER UNIQUE 
         
 );
