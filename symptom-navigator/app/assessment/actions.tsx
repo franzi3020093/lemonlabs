@@ -41,7 +41,8 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     sessionCookie.set({name: 'caseId', value: dbReturn.rows[0].patient_id, httpOnly: true, path: '/' });
 }
 
-// function to get the data from the db and save it in a variable, prevState is to be able to use the data when outputting, accessCode is passed via formData
+// function to get the data from the db and use it in frontend
+// save data in a variable, prevState is to be able to use the data when outputting, accessCode is passed via formData
 export async function getDBData(prevState: any, formData: FormData) {
 
   // get access code from form
@@ -65,16 +66,23 @@ const DatenAusDB = await connectionPool.query(`
 }
 
 // function to send and recieve promt/response from ollama, same concept for the argument as getDBData above
-export async function sendPrompt(prevState: any, formData: FormData) {
+export async function sendDataToAi() {
 
-  // get prompt from form
-  const formPrompt = formData.get("textfeld") as string;
+  // get data from db
+  // DB query
+  // to be replaced later
+  const DatenAusDB = await connectionPool.query(`
+    SELECT * FROM cases
+    `
+  );
+  // erste Zeile übergeben, achtung nur zu beispielzwecken! Muss später anders gehandelt werden
+  const data = DatenAusDB.rows[0];
 
   // define master prompt
   const masterPrompt = "";
 
   // add master prompt to user prompt
-  const prompt = masterPrompt + "\n" + formPrompt;
+  const prompt = masterPrompt + "\n" + data;
 
   try {
     // Make request to Ollama API
