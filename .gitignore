@@ -1,0 +1,5 @@
+node_modules/
+.next/
+symptom-navigator/node_modules/
+symptom-navigator/.next/
+.DS_Store
