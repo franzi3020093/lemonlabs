@@ -9,8 +9,8 @@ Als Nutzer möchte ich grundlegende Angaben (z. B. Alter, Geschlecht) machen, da
 **Priorität:** hoch  
 
 ### FA 002 – Symptome finden und erfassen
-Als Nutzer möchte ich Symptome über Kategorien, das Körpermodell oder ein Freitextfeld erfassen können, damit alle meine Beschwerden berücksichtigt werden.  
-**Akzeptanzkriterium:** Symptomerfassung über Kategorien, Körpermodell und Freitext möglich  
+Als Nutzer möchte ich Symptome über Kategorien oder ein Freitextfeld erfassen können, damit alle meine Beschwerden berücksichtigt werden.  
+**Akzeptanzkriterium:** Symptomerfassung über Kategorien und Freitext möglich  
 **Priorität:** hoch  
 
 ### FA 003 – Körpermodell anzeigen
@@ -19,27 +19,29 @@ Als Nutzer möchte ich ein visuelles Körpermodell sehen, damit ich meine Beschw
 **Priorität:** hoch  
 
 ### FA 004 – Körperregion auswählen
-Als Nutzer möchte ich eine Körperregion auswählen können, damit ich meine Symptome präzise angeben kann.  
+Als Nutzer möchte ich eine Körperregion auswählen können, damit ich einfach zu den richtigen Symptomkategorien finden kann.  
 **Akzeptanzkriterium:** Auswahl wird visuell hervorgehoben, Auswahl kann rückgängig gemacht werden  
 **Priorität:** hoch  
 
-### FA 005 – Symptome aus Körperregion anzeigen
-Als Nutzer möchte ich passende Symptome zu einer ausgewählten Körperregion sehen, damit ich diese auswählen kann.  
-**Akzeptanzkriterium:** Nach Auswahl werden passende Symptome angezeigt, Mehrfachauswahl ist möglich, Auswahl kann rückgängig gemacht werden  
+### FA 005 – Symptomkategorien der gewählten Körperregion anzeigen
+Als Nutzer möchte ich passende Symptomkategorien zu einer ausgewählten Körperregion sehen, damit ich diese auswählen kann.  
+**Akzeptanzkriterium:** Nach Auswahl werden passende Symptomkategorien angezeigt, Mehrfachauswahl ist möglich, Auswahl kann rückgängig gemacht werden  
 **Priorität:** hoch  
 
+### FA 000 - Symptome 
+
 ### FA 006 – Zusätzliche Symptome erfassen
-Als Nutzer möchte ich sonstige Symptome manuell eingeben können, damit alle meine Beschwerden berücksichtigt werden.  
+Als Nutzer möchte ich sonstige Symptome manuell eingeben können, damit alle meine Beschwerden berücksichtigt werden, die nicht unter den vordefinierten Symptomen zu finden sind.  
 **Akzeptanzkriterium:** Freitextfeld vorhanden, mehrere Symptome können eingegeben werden  
 **Priorität:** hoch  
 
 ### FA 007 – Psychische Beschwerden erfassen
-Als Nutzer möchte ich meine psychischen Beschwerden eingeben können, damit diese berücksichtigt werden.  
+Als Nutzer möchte ich auch psychischen Beschwerden eingeben können, damit diese berücksichtigt werden.  
 **Akzeptanzkriterium:** Psychische Symptome werden erfasst und gespeichert  
 **Priorität:** hoch  
 
 ### FA 008 – Mehrfache Symptomerfassung ermöglichen
-Als Nutzer möchte ich mehrere Symptome erfassen können, damit meine Beschwerden vollständig berücksichtigt werden.  
+Als Nutzer möchte ich mehrere Symptome erfassen können, damit all meine Beschwerden vollständig berücksichtigt werden.  
 **Akzeptanzkriterium:** mehrere Symptome können hinzugefügt und gespeichert werden  
 **Priorität:** hoch  
 
@@ -49,7 +51,7 @@ Als Nutzer möchte ich meine Eingaben ändern können, damit ich Fehler korrigie
 **Priorität:** hoch  
 
 ### FA 010 – Eingaben zurücksetzen
-Als Nutzer möchte ich alle Eingaben löschen können, damit ich neu beginnen kann.  
+Als Nutzer möchte ich alle Eingaben löschen können, damit ich den Einschätzungsprozess neu beginnen kann.  
 **Akzeptanzkriterium:** Alle Eingaben können mit einer Aktion gelöscht werden, Bestätigung wird angezeigt  
 **Priorität:** mittel  
 
@@ -73,12 +75,12 @@ Als Nutzer möchte ich die Auswertung meiner Angaben starten können, damit ich 
 **Priorität:** hoch  
 
 ### FA 014 – KI-basierte Auswertung
-Als Nutzer möchte ich, dass meine Daten automatisch ausgewertet werden, damit ich eine Einschätzung erhalte.  
+Als Nutzer möchte ich, dass meine Daten automatisch ausgewertet werden, damit ich schnell eine Einschätzung erhalte.  
 **Akzeptanzkriterium:** Nach Abschluss der Eingabe wird eine Auswertung generiert und angezeigt  
 **Priorität:** hoch  
 
 ### FA 015 – Dringlichkeit bestimmen
-Als Nutzer möchte ich nach Dringlichkeit priorisiert werden, damit ich schnell die richtige Hilfe bekomme.  
+Als Nutzer möchte ich nach Dringlichkeit priorisiert werden, damit ich gegebenen Falles schnell die richtige Hilfe bekomme.  
 **Akzeptanzkriterium:** Genau eine Dringlichkeitsstufe wird zugewiesen und sichtbar angezeigt  
 **Priorität:** hoch  
 
@@ -96,8 +98,8 @@ Als Nutzer möchte ich konkrete Handlungsempfehlungen erhalten, damit ich weiß,
 ## Epic: Sicherheit (hohe Priorität)
 Ziel: Früherkennung kritischer Situationen und Unterstützung bei Notfällen.
 
-### FA 018 – Red Flags anzeigen
-Als Nutzer möchte ich kritische Symptome sehen, damit ich Notfälle früh erkennen kann.  
+### FA 018 – gängige Red Flags vor restlicher Symptomeingabe anzeigen
+Als Nutzer möchte ich kritische Symptome angezeigt bekommen, damit ich Notfälle früh erkennen kann.  
 **Akzeptanzkriterium:** Liste definierter Red Flags wird angezeigt  
 **Priorität:** hoch  
 
@@ -108,12 +110,12 @@ Als Nutzer möchte ich kritische Symptome auswählen können, damit sie berücks
 
 ### FA 020 – Red Flags erkennen
 Als System sollen kritische Symptome erkannt werden, damit im Notfall reagiert werden kann.  
-**Akzeptanzkriterium:** Definierte Red Flags werden erkannt, höchste Dringlichkeitsstufe wird gesetzt  
+**Akzeptanzkriterium:** Definierte Red Flags werden erkannt, sowohl in der Red Flag-Liste zu Beginn der Einschätzung, als auch im Verlauf der Symptomeingabe höchste Dringlichkeitsstufe wird gesetzt  
 **Priorität:** hoch  
 
 ### FA 021 – Notfallhinweis anzeigen
 Als Nutzer möchte ich bei kritischen Symptomen einen klaren Hinweis erhalten, damit ich schnell handeln kann.  
-**Akzeptanzkriterium:** Notfallhinweis wird angezeigt, klare Handlungsanweisung vorhanden  
+**Akzeptanzkriterium:** Notfallhinweis wird bei kritischen Symptomen angezeigt, klare Handlungsanweisung vorhanden  
 **Priorität:** hoch  
 
 ### FA 022 – SOS-Button anzeigen
@@ -127,57 +129,63 @@ Als Nutzer möchte ich nach dem Drücken des SOS-Buttons eine klare Empfehlung z
 **Priorität:** hoch  
 
 ### FA 024 – SOS-Notruf auslösen
-Als Nutzer möchte ich die Telefonfunktion mit 112 öffnen können.  
+Als Nutzer möchte ich über die Notruf page (siehe vorherige Anforderung) die Telefonfunktion mit der vorgewählten 112 öffnen können.  
 **Akzeptanzkriterium:** Telefonfunktion öffnet sich, 112 ist vorausgefüllt, Anruf muss bestätigt werden  
 **Priorität:** hoch  
 
-### NFA 025 – Automatische Datenlöschung
-Als Nutzer möchte ich, dass meine Daten nach einer bestimmten Zeit automatisch gelöscht werden, damit meine Privatsphäre geschützt wird.  
-**Akzeptanzkriterium:** Daten werden nach definierter Zeit automatisch gelöscht  
-**Priorität:** hoch  
+### FA 000 – Allgemeine Unsicherheiten anzeigen
+Als Nutzer möchte ich über die generellen Unsicherheiten und Grenzen der Anwendung informiert werden, damit ich die Einschätzung richtig einordnen kann.  
+**Akzeptanzkriterium:** Hinweis zu Unsicherheiten ist jederzeit abrufbar, Inhalte sind verständlich formuliert und weisen darauf hin, dass keine medizinische Diagnose ersetzt wird  
+**Priorität:** hoch 
+
 
 ## Epic: Datenhaltung (hohe Priorität)
 Ziel: Sichere Speicherung und Verwaltung aller Nutzerdaten.
 
 ### FA 026 – Daten speichern
 Als Nutzer möchte ich meine Daten speichern können, damit ich sie später nutzen kann.  
-**Akzeptanzkriterium:** Daten werden gespeichert und einer ID zugeordnet  
+**Akzeptanzkriterium:** Daten werden gespeichert und einem zugriffs Code zugeordnet  
 **Priorität:** hoch  
 
 ### FA 027 – Daten abrufen
 Als Nutzer möchte ich meine Daten einsehen können.  
-**Akzeptanzkriterium:** Daten werden vollständig und verständlich angezeigt  
+**Akzeptanzkriterium:** relevante Daten werden bei Abfrage per zugriffs Code vollständig und verständlich angezeigt  
 **Priorität:** mittel  
 
 ### FA 028 – Daten löschen
 Als Nutzer möchte ich meine Daten löschen können.  
-**Akzeptanzkriterium:** Daten sind danach nicht mehr abrufbar  
+**Akzeptanzkriterium:** Daten sind nach Löschung nicht mehr in der Datenbank gespeichert  
 **Priorität:** mittel  
 
+### FA 025 – Automatische Datenlöschung
+Als Nutzer möchte ich, dass meine Daten nach einer bestimmten Zeit automatisch gelöscht werden, damit meine Privatsphäre geschützt wird.  
+**Akzeptanzkriterium:** Daten werden nach definierter Zeit automatisch gelöscht  
+**Priorität:** hoch  
+
 ### FA 029 – Daten exportieren
-Als Nutzer möchte ich meine Daten exportieren können.  
+Als Nutzer möchte ich meine Daten für meinen persönlichen Gebrauch exportieren können.  
 **Akzeptanzkriterium:** Exportfunktion vorhanden, Daten vollständig enthalten  
 **Priorität:** mittel  
 
-### FA 000 – Daten lokal in Cookies speichern
-Als Nutzer möchte ich, dass meine Eingaben lokal gespeichert werden, damit ich die Anwendung später fortsetzen kann.  
-**Akzeptanzkriterium:** Daten werden in Cookies oder lokalem Speicher abgelegt, Daten bleiben bei erneutem Aufruf erhalten  
+### FA 000 – Daten über Session speichern
+Als Nutzer möchte ich, dass meine Eingaben einer Session gespeichert werden, damit ich die Anwendung später fortsetzen kann.  
+**Akzeptanzkriterium:** Daten bleiben bei erneutem Aufruf erhalten  
 **Priorität:** mittel  
 
 ## Epic: Transparenz (hohe Priorität)
 
 ### FA 030 – Eingaben bestätigen
 Als Nutzer möchte ich meine Eingaben vor dem Absenden überprüfen können.  
-**Akzeptanzkriterium:** Zusammenfassung wird angezeigt, Änderungen möglich  
+**Akzeptanzkriterium:** Eingegebene Informationen werden angezeigt, Änderungen möglich  
 **Priorität:** hoch  
 
 ### FA 031 – Freitext zusammenfassen
-Als Nutzer möchte ich eine verständliche Zusammenfassung sehen.  
+Als Nutzer möchte ich eine verständliche Zusammenfassung meines Freitextes sehen und gegebenen Falles meinen Text neu schreiben, damit "Missverständnisse" bei der Automatisierten Auswertung minimiert werden.  
 **Akzeptanzkriterium:** Zusammenfassung wird angezeigt und kann angepasst werden  
 **Priorität:** mittel  
 
 ### FA 032 – Begründung anzeigen
-Als Nutzer möchte ich verstehen, warum eine Einschätzung getroffen wurde.  
+Als Nutzer möchte ich verstehen, warum eine Einschätzung getroffen wurde, damit ich eine eventuelle Fehleinschätzung potentiell erkennen kann.  
 **Akzeptanzkriterium:** Begründung ist verständlich und nachvollziehbar  
 **Priorität:** hoch  
 
@@ -187,11 +195,16 @@ Ziel: Intuitive und verständliche Nutzung.
 
 ### FA 033 – Navigation zwischen Schritten
 Als Nutzer möchte ich zwischen Schritten wechseln können.  
-**Akzeptanzkriterium:** Vor und Zurück Navigation möglich, Daten bleiben erhalten  
+**Akzeptanzkriterium:** Vor und Zurück Navigation möglich, Daten bleiben dabei erhalten  
+**Priorität:** hoch  
+
+### FA 038 – Einstiegsauswahl anzeigen
+Als Nutzer möchte ich zu Beginn auswählen können, welche Funktion ich nutzen möchte, damit ich direkt zum passenden Bereich gelange.  
+**Akzeptanzkriterium:** Auswahl zwischen Symptomerfassung, Einstellungen und anderen Anliegen(Termine online verwalten, Rezepte online verwalten) wird angezeigt  
 **Priorität:** hoch  
 
 ### FA 034 – Terminbutton anzeigen
-Als Nutzer möchte ich einen Terminbutton sehen.  
+Als Nutzer möchte ich einen Terminbutton auf einer dafür vorgesehenen page sehen.  
 **Akzeptanzkriterium:** Button ist sichtbar und verständlich  
 **Priorität:** mittel  
 
@@ -201,7 +214,7 @@ Als Nutzer möchte ich zu einem Terminservice weitergeleitet werden.
 **Priorität:** mittel  
 
 ### FA 036 – Rezeptbutton anzeigen
-Als Nutzer möchte ich einen Rezeptbutton sehen.  
+Als Nutzer möchte ich einen Rezeptbutton auf einer dafür vorgesehenen page sehen.  
 **Akzeptanzkriterium:** Button ist sichtbar und verständlich  
 **Priorität:** mittel  
 
@@ -209,11 +222,6 @@ Als Nutzer möchte ich einen Rezeptbutton sehen.
 Als Nutzer möchte ich zu einem Rezeptservice weitergeleitet werden.  
 **Akzeptanzkriterium:** Weiterleitung funktioniert korrekt  
 **Priorität:** mittel  
-
-### FA 038 – Einstiegsauswahl anzeigen
-Als Nutzer möchte ich zu Beginn auswählen können, welche Funktion ich nutzen möchte, damit ich direkt zum passenden Bereich gelange.  
-**Akzeptanzkriterium:** Auswahl zwischen Symptomerfassung und anderen Anliegen wird angezeigt  
-**Priorität:** hoch  
 
 ### FA 000 – Support kontaktieren
 Als Nutzer möchte ich eine Möglichkeit haben, Support zu kontaktieren oder Fehler zu melden, damit ich Probleme melden kann.  
@@ -227,7 +235,7 @@ Als Nutzer möchte ich eine Datenschutzerklärung einsehen können, damit ich we
 
 ### FA 000 – Impressum anzeigen
 Als Nutzer möchte ich ein Impressum einsehen können, damit ich weiß, wer für die Anwendung verantwortlich ist.  
-**Akzeptanzkriterium:** Impressum ist jederzeit erreichbar, gesetzlich erforderliche Angaben sind enthalten  
+**Akzeptanzkriterium:** Impressum ist aufrufbar, gesetzlich erforderliche Angaben sind enthalten  
 **Priorität:** hoch  
 
 ### FA 000 – Anwendung ohne Login nutzen
@@ -236,32 +244,32 @@ Als Nutzer möchte ich die Anwendung ohne Registrierung oder Login nutzen könne
 **Priorität:** hoch  
 
 ### NFA 001 – Intuitive Bedienbarkeit
-Als Nutzer möchte ich die Anwendung einfach bedienen können.  
+Als Nutzer möchte ich die Anwendung einfach bedienen können, um lange Lernzeiten zu vermeiden.  
 **Akzeptanzkriterium:** Navigation ist selbsterklärend  
 **Priorität:** hoch  
 
 ### NFA 002 – Verständliche Sprache
-Als Nutzer möchte ich Inhalte verstehen können.  
+Als Nutzer möchte ich einfache Sprache vorfinden, sodass ich Inhalte verstehen kann.  
 **Akzeptanzkriterium:** Sprache ist einfach und klar  
 **Priorität:** hoch  
 
 ### NFA 003 – Ladezeiten
-Als Nutzer möchte ich schnelle Reaktionszeiten.  
+Als Nutzer möchte ich schnelle Reaktionszeiten, damit die Nutzung der Website effizient möglich ist.  
 **Akzeptanzkriterium:** Seiten laden unter 2 Sekunden  
 **Priorität:** hoch  
 
 ### NFA 004 – Visuelle Barrierefreiheit
 Als Nutzer möchte ich Inhalte gut lesen können, damit ich die Anwendung unabhängig von Einschränkungen nutzen kann.  
-**Akzeptanzkriterium:** ausreichende Kontraste vorhanden, Schriftgröße ist lesbar (anpassbar->FA)  
+**Akzeptanzkriterium:** ausreichende Kontraste vorhanden, Schriftgröße ist lesbar (anpassbar->FA), Website ist geeignet für Screenreader  
 **Priorität:** mittel  
 
 ### NFA 005 – Bedienbarkeit
 Als Nutzer möchte ich die Anwendung einfach bedienen können, damit ich sie ohne Einschränkungen nutzen kann.  
-**Akzeptanzkriterium:** Navigation ist auch ohne präzise Eingaben möglich, große klickbare Elemente vorhanden  
+**Akzeptanzkriterium:** Navigation ist auch ohne präzise Eingaben möglich, große klickbare Elemente vorhanden, nur mit Tastatur navigirbar  
 **Priorität:** mittel    
 
 ### NFA 006 – Responsives Design
-Als Nutzer möchte ich die Anwendung auf allen Geräten nutzen können.  
+Als Nutzer möchte ich die Anwendung auf allen Geräten nutzen können, damit ich nicht auf ein spezielles Gerät zur Nutzung angewiesen bin.  
 **Akzeptanzkriterium:** Darstellung passt sich an Bildschirmgröße an  
 **Priorität:** hoch  
 
@@ -274,21 +282,17 @@ Als Nutzer möchte ich eine visuell ansprechende Oberfläche haben, damit ich di
 Als Nutzer möchte ich Inhalte durch Icons unterstützt sehen, damit ich Informationen schneller verstehe.  
 **Akzeptanzkriterium:** wichtige Funktionen werden durch verständliche Icons ergänzt  
 **Priorität:** niedrig  
-
-### FA 000 – Allgemeine Unsicherheiten anzeigen
-Als Nutzer möchte ich über die generellen Unsicherheiten und Grenzen der Anwendung informiert werden, damit ich die Einschätzung richtig einordnen kann.  
-**Akzeptanzkriterium:** Hinweis zu Unsicherheiten ist jederzeit abrufbar, Inhalte sind verständlich formuliert und weisen darauf hin, dass keine medizinische Diagnose ersetzt wird  
-**Priorität:** hoch  
+ 
 
 ## Epic: Interoperabilität (mittlere Priorität) 
 
 ### FA 040 – Daten bereitstellen
-Als Nutzer möchte ich Daten weitergeben können.  
+Als Nutzer möchte ich Daten weitergeben können, damit diese weiter verwendet werden können.  
 **Akzeptanzkriterium:** Schnittstelle oder Export vorhanden  
 **Priorität:** mittel  
 
 ### FA 041 – FHIR-Kompatibilität
-Als Nutzer möchte ich meine Daten an Krankenhäuser weitergeben können.  
+Als Nutzer möchte ich meine Daten an Krankenhäuser weitergeben können, damit ich mich bei einem Krankenhaus Besuch nicht so oft wiederholen muss.  
 **Akzeptanzkriterium:** Daten entsprechen FHIR  
 **Priorität:** mittel  
 
@@ -296,17 +300,17 @@ Als Nutzer möchte ich meine Daten an Krankenhäuser weitergeben können.
 ## Epic: Zusatzfeatures (niedrige Priorität)
 
 ### FA 042 – Offline-Modus
-Als Nutzer möchte ich die Anwendung offline nutzen können.  
-**Akzeptanzkriterium:** Grundfunktionen sind offline verfügbar  
+Als Nutzer möchte ich die Anwendung offline nutzen können, damit ich im Falle keiner Internetverbindung trotzdem eine allgemeinere Handlungsempfehlung erhalten kann.  
+**Akzeptanzkriterium:** Ersatzfunktionen sind offline verfügbar  
 **Priorität:** niedrig  
 
 ### FA 043 – Offline-Speicherung
-Als Nutzer möchte ich Daten offline speichern können.  
+Als Nutzer möchte ich Daten offline speichern können, um auch ohne Internet angegebene Daten später abrufen zu können.  
 **Akzeptanzkriterium:** Synchronisation erfolgt später  
 **Priorität:** niedrig  
 
 ### FA 044 – Installierbarkeit
-Als Nutzer möchte ich die Anwendung installieren können.  
+Als Nutzer möchte ich die Anwendung installieren können, damit ich sie be Bedarf einfacher aufrufen kann.  
 **Akzeptanzkriterium:** Installation über Browser möglich  
 **Priorität:** niedrig  
 
@@ -336,8 +340,8 @@ Als Nutzer möchte ich bei der Eingabe von Symptomen durch eine KI unterstützt 
 **Priorität:** hoch 
 
 ### FA 000 – Bildverarbeitung
-
-**Akzeptanzkriterium:**  
+Als Nutzer möchte ich relevante Bilder hochladen können, sodass diese dem Einschätzungsprozess zu gute kommen können.  
+**Akzeptanzkriterium:**  bei der Symptomeingabe können auch Bilder hochgeladen werden
 **Priorität:** niedrig 
 
 ## Legende
