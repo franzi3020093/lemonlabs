@@ -11,6 +11,7 @@ export function useSaveForm(basisData: any, redFlags: any, selectedRegion: any) 
         const formData = new FormData();
         // assigning the correct data from the form to formData
         formData.set("age", basisData.age);
+        formData.set("gender", basisData.gender);
         await saveFormData(formData, redFlags, selectedRegion); // call the server action to save the form data in the db and set the cookie
         }
     return handleSaveForm;

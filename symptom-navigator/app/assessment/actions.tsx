@@ -13,6 +13,16 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     // form data is saved in variables and converted to the correct type
     const age = parseInt(formData.get("age") as string);
 
+    const sexString = formData.get("gender") as string;
+    let sex = '';
+    if (sexString === "weiblich") {
+        sex = 'w';
+    } else if (sexString === "männlich") {
+        sex = 'm';
+    } else if (sexString === "divers") {
+        sex = 'd';
+    }
+
     //test log
     console.log("test:", formData.toString());
     console.log("redFlags:", redFlags);
@@ -24,12 +34,12 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     // schreiben der Daten in die DB und return der ID zum Abruf auf assesment
     const dbReturn = await connectionPool.query(
         `
-        Insert into cases (age)
-        VALUES ($1)
+        Insert into cases (age, sex)
+        VALUES ($1, $2)
 
         returning case_id
         `,
-        [age]
+        [age, sex]
     );
 
     // test logs
@@ -38,7 +48,7 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
 
     // set cookie to acess later on
     const sessionCookie = await cookies();
-    sessionCookie.set({name: 'caseId', value: dbReturn.rows[0].patient_id, httpOnly: true, path: '/' });
+    sessionCookie.set({name: 'caseId', value: dbReturn.rows[0].case_id, httpOnly: true, path: '/' });
 }
 
 // function to get the data from the db and use it in frontend
