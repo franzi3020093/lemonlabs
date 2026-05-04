@@ -39,3 +39,22 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     const sessionCookie = await cookies();
     sessionCookie.set({name: 'caseId', value: dbReturn.rows[0].patient_id, httpOnly: true, path: '/' });
 }
+
+//funktion zum holen der Daten aus der DB und in eine Variable speichern, prevState ist, um die Daten bei Ausgabe verwenden zu können, über formData wird accessCode übergeben
+export async function getDBData(prevState: any, formData: FormData) {
+
+// DB query
+const DatenAusDB = await connectionPool.query(`
+    SELECT * FROM cases
+    WHERE case_id = ${parseInt(formData.get("accessCode") as string)}
+    `
+);
+// test log und Abfangen von "inkorrekten" Eingaben, sowie Rückgabe der Daten, falls vorhanden
+  if (DatenAusDB.rows.length > 0) {
+  console.log("Abfrageergebnis:", DatenAusDB);
+  return DatenAusDB.rows[0];
+  } else {
+    console.log("Keine Daten");
+    return null;
+  }
+}

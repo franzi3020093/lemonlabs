@@ -154,6 +154,9 @@ export default function AssessmentPage() {
     setStep("result");
   }
 
+  // assign correct data to the handleSaveForm function
+  const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
+
   return (
     <main className={styles.main}>
       <form className={styles.card} onSubmit={handleSubmit}>
@@ -439,7 +442,6 @@ export default function AssessmentPage() {
                       console.log("Freitext abgeschickt:", symptomText);
                       setStep("result");
                       // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
-                      const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
                       handleSaveForm();  
                     }}
                     disabled={symptomText.trim().length === 0}
@@ -462,7 +464,6 @@ export default function AssessmentPage() {
                         console.log("Hauskatze:", "ja");
                         setStep("result");
                         // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
-                        const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
                         handleSaveForm();  
                       }}
                     >
@@ -477,7 +478,6 @@ export default function AssessmentPage() {
                         console.log("Hauskatze:", "nein");
                         setStep("result");
                         // manual calling of saveFormData through useSaveForm on klick since the whole page is client side and saveFormData cannot be called with action attribute
-                        const handleSaveForm = useSaveForm(basisData, redFlags, selectedMainRegion);
                         handleSaveForm();  
                       }}
                     >
