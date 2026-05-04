@@ -7,7 +7,7 @@
 
 ## Prävention von KI-Fehlverhalten
 * **Implementierung von RAG:** Wir begrenzen die KI-Antworten technisch auf die Inhalte offizieller medizinischer Leitlinien (AWMF-Leitlinien).
-* **Nutzung klinischer APIs:** Wir sichern die medizinische Logik durch deterministische Systeme ab, um statistische Fehler der KI zu minimieren.
+* 
 * **Ausschluss von Halluzinationen:** Wir unterbinden freie Textgenerierungen in kritischen Bereichen durch die Verwendung von validierten Textbausteinen.
 
 ## Validierung der Notfall-Logik (Red Flags)
