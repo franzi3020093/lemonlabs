@@ -159,6 +159,10 @@ Als Nutzer möchte ich meine Daten exportieren können.
 **Akzeptanzkriterium:** Exportfunktion vorhanden, Daten vollständig enthalten  
 **Priorität:** mittel  
 
+### FA 000 – Daten lokal in Cookies speichern
+Als Nutzer möchte ich, dass meine Eingaben lokal gespeichert werden, damit ich die Anwendung später fortsetzen kann.  
+**Akzeptanzkriterium:** Daten werden in Cookies oder lokalem Speicher abgelegt, Daten bleiben bei erneutem Aufruf erhalten  
+**Priorität:** mittel  
 
 ## Epic: Transparenz (hohe Priorität)
 
@@ -224,6 +228,11 @@ Als Nutzer möchte ich eine Datenschutzerklärung einsehen können, damit ich we
 ### FA 000 – Impressum anzeigen
 Als Nutzer möchte ich ein Impressum einsehen können, damit ich weiß, wer für die Anwendung verantwortlich ist.  
 **Akzeptanzkriterium:** Impressum ist jederzeit erreichbar, gesetzlich erforderliche Angaben sind enthalten  
+**Priorität:** hoch  
+
+### FA 000 – Anwendung ohne Login nutzen
+Als Nutzer möchte ich die Anwendung ohne Registrierung oder Login nutzen können, damit ich schnell und unkompliziert eine Einschätzung erhalten kann.  
+**Akzeptanzkriterium:** Anwendung ist ohne Login zugänglich, alle Kernfunktionen sind ohne Anmeldung nutzbar  
 **Priorität:** hoch  
 
 ### NFA 001 – Intuitive Bedienbarkeit
@@ -324,7 +333,12 @@ Als Nutzer möchte ich auch ohne Internet eine Anleitung nutzen können, damit i
 ### FA 048 – Sprache einstellen
 Als Nutzer möchte ich die Sprache der Anwendung ändern können, damit ich sie besser verstehe.  
 **Akzeptanzkriterium:** mindestens zwei Sprachen auswählbar, Auswahl wird gespeichert und beim nächsten Start wiederverwendet  
-**Priorität:** niedrig  
+**Priorität:** niedrig 
+
+### FA 000 – KI-Unterstützung bei der Symptomsuche
+Als Nutzer möchte ich bei der Eingabe von Symptomen durch eine KI unterstützt werden, damit ich passende Symptome schneller finde.  
+**Akzeptanzkriterium:** Während der Eingabe werden Vorschläge angezeigt, Vorschläge basieren auf Nutzereingaben, Auswahl ist möglich  
+**Priorität:** hoch  
 
 ## Legende
 FA = Funktionale Anforderung (beschreibt konkrete Funktionen des Systems)  
