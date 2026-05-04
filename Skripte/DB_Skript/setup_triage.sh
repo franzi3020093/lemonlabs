@@ -26,7 +26,8 @@ CREATE TABLE cases (
 	case_id SERIAL PRIMARY KEY,
 	first_name VARCHAR(100),
 	last_name VARCHAR (100),
-	age INTEGER
+	age INTEGER,
+	sex CHAR(1)
 );
 
 CREATE TABLE symptom_catalog (
