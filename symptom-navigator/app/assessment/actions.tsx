@@ -26,7 +26,7 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
         Insert into cases (age)
         VALUES ($1)
 
-        returning patient_id
+        returning case_id
         `,
         [age]
     );
