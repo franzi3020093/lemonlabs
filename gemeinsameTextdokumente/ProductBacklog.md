@@ -252,7 +252,7 @@ Als Nutzer möchte ich schnelle Reaktionszeiten.
 
 ### NFA 004 – Visuelle Barrierefreiheit
 Als Nutzer möchte ich Inhalte gut lesen können, damit ich die Anwendung unabhängig von Einschränkungen nutzen kann.  
-**Akzeptanzkriterium:** ausreichende Kontraste vorhanden, Schriftgröße ist lesbar anpassbar  
+**Akzeptanzkriterium:** ausreichende Kontraste vorhanden, Schriftgröße ist lesbar (anpassbar->FA)  
 **Priorität:** mittel  
 
 ### NFA 005 – Bedienbarkeit
@@ -280,12 +280,7 @@ Als Nutzer möchte ich über die generellen Unsicherheiten und Grenzen der Anwen
 **Akzeptanzkriterium:** Hinweis zu Unsicherheiten ist jederzeit abrufbar, Inhalte sind verständlich formuliert und weisen darauf hin, dass keine medizinische Diagnose ersetzt wird  
 **Priorität:** hoch  
 
-## Epic: Interoperabilität (mittlere Priorität)
-
-### FA 039 – Weiterleitung an externe Dienste
-Als Nutzer möchte ich externe Dienste nutzen können.  
-**Akzeptanzkriterium:** Weiterleitung funktioniert korrekt  
-**Priorität:** hoch  
+## Epic: Interoperabilität (mittlere Priorität) 
 
 ### FA 040 – Daten bereitstellen
 Als Nutzer möchte ich Daten weitergeben können.  
@@ -293,7 +288,7 @@ Als Nutzer möchte ich Daten weitergeben können.
 **Priorität:** mittel  
 
 ### FA 041 – FHIR-Kompatibilität
-Als Nutzer möchte ich standardisierte Datenformate nutzen.  
+Als Nutzer möchte ich meine Daten an Krankenhäuser weitergeben können.  
 **Akzeptanzkriterium:** Daten entsprechen FHIR  
 **Priorität:** mittel  
 
@@ -338,7 +333,12 @@ Als Nutzer möchte ich die Sprache der Anwendung ändern können, damit ich sie 
 ### FA 000 – KI-Unterstützung bei der Symptomsuche
 Als Nutzer möchte ich bei der Eingabe von Symptomen durch eine KI unterstützt werden, damit ich passende Symptome schneller finde.  
 **Akzeptanzkriterium:** Während der Eingabe werden Vorschläge angezeigt, Vorschläge basieren auf Nutzereingaben, Auswahl ist möglich  
-**Priorität:** hoch  
+**Priorität:** hoch 
+
+### FA 000 – Bildverarbeitung
+
+**Akzeptanzkriterium:**  
+**Priorität:** niedrig 
 
 ## Legende
 FA = Funktionale Anforderung (beschreibt konkrete Funktionen des Systems)  
