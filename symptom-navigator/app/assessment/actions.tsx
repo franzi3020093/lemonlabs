@@ -5,6 +5,7 @@ import { connectionPool } from "../db"; // for database queries
 import { cookies } from 'next/headers' // for cookies
 import { randomUUID } from 'crypto'; // for generating access codes for the db data
 import { NextResponse } from 'next/server'; // for redirecting and returning json responses in this case mainly ai responses
+import { access } from "fs";
 
 // function to save form data in variables and query to write to the db
 export async function saveFormData(formData: FormData, redFlags: any, selectedRegion: any) {
@@ -40,16 +41,20 @@ export async function saveFormData(formData: FormData, redFlags: any, selectedRe
     sessionCookie.set({name: 'caseId', value: dbReturn.rows[0].patient_id, httpOnly: true, path: '/' });
 }
 
-//funktion zum holen der Daten aus der DB und in eine Variable speichern, prevState ist, um die Daten bei Ausgabe verwenden zu können, über formData wird accessCode übergeben
+// function to get the data from the db and save it in a variable, prevState is to be able to use the data when outputting, accessCode is passed via formData
 export async function getDBData(prevState: any, formData: FormData) {
+
+  // get access code from form
+const accessCode = parseInt(formData.get("accessCode") as string); 
 
 // DB query
 const DatenAusDB = await connectionPool.query(`
     SELECT * FROM cases
-    WHERE case_id = ${parseInt(formData.get("accessCode") as string)}
+    WHERE case_id = ${accessCode}
     `
 );
-// test log und Abfangen von "inkorrekten" Eingaben, sowie Rückgabe der Daten, falls vorhanden
+
+// catching incorrect inputs and returning data if exists
   if (DatenAusDB.rows.length > 0) {
   console.log("Abfrageergebnis:", DatenAusDB);
   return DatenAusDB.rows[0];
@@ -58,3 +63,45 @@ const DatenAusDB = await connectionPool.query(`
     return null;
   }
 }
+
+// function to send and recieve promt/response from ollama, same concept for the argument as getDBData above
+export async function sendPrompt(prevState: any, formData: FormData) {
+
+  // get prompt from form
+  const formPrompt = formData.get("textfeld") as string;
+
+  // define master prompt
+  const masterPrompt = "";
+
+  // add master prompt to user prompt
+  const prompt = masterPrompt + "\n" + formPrompt;
+
+  try {
+    // Make request to Ollama API
+    const response = await fetch('http://141.19.141.150:11434/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'medgemma:27b',
+        prompt: prompt,
+        stream: false,
+      }),
+    });
+  
+    // data contains response from ai
+    const data = await response.json();
+  
+    // printing response
+    console.log('medgemma response:', data.response);
+    return data.response;
+  // throwing error if somethign goes wrong
+  } catch (error) {
+    console.error('Error:', error);
+    return NextResponse.json(
+      { error: 'Failed to process the request' },
+      { status: 500 }
+    );
+  }
+} 
