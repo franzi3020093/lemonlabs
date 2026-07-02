@@ -47,7 +47,7 @@ test("schwangere Patientin mit Brustschmerz, Fieber und Verschlimmerung wird kor
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
   // select severe chest pressure symptom
-  await page.getByLabel("Engegefühl, massiver Druck oder Brennen (Red Flag)").check();
+  await page.getByLabel("Engegefühl, massiver Druck oder Brennen").check();
 
   // fill in pain scale
   await page.locator('input[type="range"]').fill("9");

@@ -27,7 +27,7 @@ test("Eingegebene Daten auf CheckInfo-Seite überprüfen und bearbeiten", async 
   await page.getByRole("button", { name: "Brust links", exact: true }).last().click();
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
-  await page.getByLabel("Engegefühl, massiver Druck oder Brennen (Red Flag)").check();
+  await page.getByLabel("Engegefühl, massiver Druck oder Brennen").check();
   await page.locator('input[type="range"]').fill("8");
   await page.getByRole("button", { name: "Weiter" }).click();
 

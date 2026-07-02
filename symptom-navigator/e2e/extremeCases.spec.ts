@@ -56,7 +56,7 @@ test("Extremfall: Mehr als 10 Symptome aus unterschiedlichen Körperregionen aus
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
   await page.getByRole("button", { name: /Verspannung & Bewegungsschmerz/ }).click();
-  await page.getByLabel("Schmerzhafte Muskelverhärtung (Myogelose)").check();
+  await page.getByLabel("Schmerzhafte Muskelverhärtung").check();
   await page.getByLabel("Eingeschränkte Drehung / Steifer Hals").check();
   await page.getByLabel("Knirschen bei Kopfbewegungen").check();
   await page.getByRole("button", { name: "Weiter" }).click();

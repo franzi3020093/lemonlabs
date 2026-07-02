@@ -51,7 +51,7 @@ test("männlicher Patient mit Nackenbeschwerden wird korrekt gespeichert", async
   await page.getByRole("button", { name: /Verspannung & Bewegungsschmerz/ }).click();
 
   // select symptoms via checkbox label
-  await page.getByLabel("Schmerzhafte Muskelverhärtung (Myogelose)").check();
+  await page.getByLabel("Schmerzhafte Muskelverhärtung").check();
 
   // fill in pain intensity via range slider
   await page.locator('input[type="range"]').fill("5");
