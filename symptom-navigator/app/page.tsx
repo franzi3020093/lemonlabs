@@ -16,7 +16,8 @@ import homeStyles from "./Home.module.css";
 import assessmentStyles from "./assessment/Assessment.module.css";
 
 import { useSaveForm } from "./useSaveForm";
-import { sendDataToAi, sendFhirToServer } from "./actions";
+import { sendFhirToServer } from "./actions/fhirActions";
+import { sendDataToAi } from "./actions/aiActions";
 import { redFlagScan } from "./assessment/medicalLogic/redFlagScan";
 
 import SelectMoreSymptoms from "./assessment/components/SelectMoreSymptomsStep";
@@ -83,6 +84,18 @@ export default function Home() {
 
   // reference to current step
   const stepRef = useRef<Step>("start");
+  const mainRef = useRef<HTMLElement | null>(null);
+  const isFirstMount = useRef(true);
+
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    if (mainRef.current) {
+      mainRef.current.focus();
+    }
+  }, [step]);
 
   /*
    Stores whether the instructions have been acknowledged.
@@ -637,6 +650,10 @@ export default function Home() {
 
   return (
     <main
+      id="main-content"
+      ref={mainRef}
+      tabIndex={-1}
+      style={{ outline: "none" }}
       className={
         step === "start" || step === "hinweise" || step === "other" || step === "datenschutz" || step === "impressum" || step === "kontakt" || step === "support"
           ? homeStyles.main
@@ -667,6 +684,7 @@ export default function Home() {
           onOpenSupport={() => goToStep("support")}
         />
       )}
+
       {/* Data management page */}
       {step === "manageData" && (
         <form className={assessmentStyles.card} onSubmit={(e) => { e.preventDefault(); goToStep("start"); }}>
@@ -684,6 +702,7 @@ export default function Home() {
           </div>
         </form>
       )}
+
       {/* Appointments */}
       {step === "other" && (
         <OtherStep
@@ -691,22 +710,27 @@ export default function Home() {
           onManageData={() => goToStep("manageData")}
         />
       )}
+
       {/* privacy policy */}
       {step === "datenschutz" && (
         <DatenschutzStep onBack={() => window.history.back()} />
       )}
+
       {/* Impressum */}
       {step === "impressum" && (
         <ImpressumStep onBack={() => window.history.back()} />
       )}
+
       {/* Kontakt */}
       {step === "kontakt" && (
         <KontaktStep onBack={() => window.history.back()} />
       )}
+
       {/* Support */}
       {step === "support" && (
         <SupportStep onBack={() => window.history.back()} />
       )}
+
       {/* all steps from assessment */}
       {step !== "start" && step !== "hinweise" && step !== "manageData" && step !== "other" && step !== "datenschutz" && step !== "impressum" && step !== "kontakt" && step !== "support" && (
         <AssessmentLayout

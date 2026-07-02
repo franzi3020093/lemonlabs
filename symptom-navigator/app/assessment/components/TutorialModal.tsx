@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 import type { Step } from "../../types/assessment";
 import homeStyles from "../../Home.module.css";
 import { CheckCircle, X } from "@phosphor-icons/react";
@@ -385,14 +387,14 @@ function getTutorialContent(
   startFormOffline?: boolean
 ): TutorialContent {
   /*
-    Wenn sich die Anwendung im Offline-Modus befindet, werden
-    angepasste Hilfetexte für die betroffenen Schritte geladen.
+    If the application is in offline mode, adapted help texts
+    for the affected steps are loaded.
   */
   if (isOffline) {
     /*
-      Startseite im Offline-Modus:
-      Erklärt die verfügbaren Offline-Aktionen ("Warnzeichen erkennen"
-      und "Ersteinschätzung offline starten").
+      Start page in offline mode:
+      Explains the available offline actions ("recognize warning signs"
+      and "start offline assessment").
     */
     if (currentStep === "start") {
       return {
@@ -408,9 +410,9 @@ function getTutorialContent(
       };
     }
     /*
-      Warnzeichen-Prüfung im Offline-Modus:
-      Unterscheidet, ob der Nutzer nur Warnzeichen scannt (kehrt danach zur Startseite zurück)
-      oder eine vollständige Offline-Ersteinschätzung fortführt.
+      Warning signs check in offline mode:
+      Distinguishes whether the user only scans warning signs (returns to the start page afterwards)
+      or continues a full offline assessment.
     */
     if (currentStep === "redflags") {
       if (startFormOffline) {
@@ -438,9 +440,9 @@ function getTutorialContent(
       }
     }
     /*
-      Zusammenfassung im Offline-Modus:
-      Weist darauf hin, dass die Daten offline geprüft, aber erst bei
-      aktiver Verbindung gesendet werden können.
+      Summary in offline mode:
+      Indicates that the data can be reviewed offline, but can only be sent
+      when an active connection is restored.
     */
     if (currentStep === "checkInfo") {
       return {
@@ -454,8 +456,8 @@ function getTutorialContent(
       };
     }
     /*
-      Andere Anliegen im Offline-Modus:
-      Weist darauf hin, dass externe Online-Dienste eine Verbindung erfordern.
+      Other requests in offline mode:
+      Indicates that external online services require a connection.
     */
     if (currentStep === "other") {
       return {
@@ -498,6 +500,10 @@ export function TutorialModal({
   isOffline,
   startFormOffline,
 }: TutorialModalProps) {
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useFocusTrap(modalRef, isOpen, onClose);
+
   /*
     Do not render anything while the modal is closed.
     This also keeps it hidden from screen readers and keyboard navigation.
@@ -512,7 +518,7 @@ export function TutorialModal({
   return (
     /* Overlay displayed above the current page. */
     <div className={homeStyles.tutorialOverlay}>
-      <div className={homeStyles.tutorialModalBox}>
+      <div className={homeStyles.tutorialModalBox} ref={modalRef}>
         {/* Close button displayed in the top-right corner. */}
         <button
           type="button"

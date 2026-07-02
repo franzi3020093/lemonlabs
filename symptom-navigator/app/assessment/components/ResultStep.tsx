@@ -9,9 +9,10 @@ import { useEffect, useState } from "react";
 
 /* Shared styles for result sections, data tables, and action buttons. */
 import assessmentStyles from "../Assessment.module.css";
+import homeStyles from "../../Home.module.css";
 
 /* Retrieves the access code associated with the saved case from the server. */
-import { getAccessCode } from "../../actions";
+import { getAccessCode } from "../../actions/dbActions";
 /* Generates downloadable TXT and PDF files in the browser. */
 import { downloadTxt, downloadPdf } from "../utils/exportUtils";
 
@@ -19,12 +20,14 @@ import { downloadTxt, downloadPdf } from "../utils/exportUtils";
 import type {
   AdditionalData,
   BasisData,
+  Step,
 } from "../../types/assessment";
 import {
   buildExportData,
   parseSymptomName,
   parseSymptomText
 } from "../utils/resultUtils";
+import { SosModal } from "./SosModal";
 
 /*
   All result data is provided by the central workflow controller.
@@ -260,13 +263,23 @@ export function ResultStep({
 
     if (urgency >= 5) {
       return (
+        <>
         <button
           type="button"
-          className={assessmentStyles.continueButton}
+          className={homeStyles.emergencyButton}
           onClick={() => setShowEmergencyPopup(true)}
         >
-          Notfallhinweis anzeigen
+          SOS
         </button>
+
+        {/* Urgency level 5 requires a clearly visible emergency notice before initiating a direct emergency call. */}
+        {showEmergencyPopup && (
+          <SosModal
+              isOpen={showEmergencyPopup}
+              onClose={() => setShowEmergencyPopup(false)}
+          />
+        )}
+        </>
       );
     }
 
@@ -312,12 +325,13 @@ export function ResultStep({
             {key.replace("suspicion", "Vermutung ")}
           </p>
           <div className={assessmentStyles.dataListItemGrid}>
-            <div>
-              <span className={assessmentStyles.dataLabel}>Einordnung</span>
-              <strong className={assessmentStyles.dataValue}>
-                {displayValue(name)}
-              </strong>
-            </div>
+          
+            {reason && (
+              <div className={assessmentStyles.dataRowWide}>
+                <span className={assessmentStyles.dataLabel}></span>
+                <strong className={assessmentStyles.dataValue}>{reason}</strong>
+              </div>
+            )}
             {probability && (
               <div>
                 <span className={assessmentStyles.dataLabel}>
@@ -326,12 +340,6 @@ export function ResultStep({
                 <strong className={assessmentStyles.dataValue}>
                   {probability * 100}%
                 </strong>
-              </div>
-            )}
-            {reason && (
-              <div className={assessmentStyles.dataRowWide}>
-                <span className={assessmentStyles.dataLabel}>Begründung</span>
-                <strong className={assessmentStyles.dataValue}>{reason}</strong>
               </div>
             )}
           </div>
@@ -370,7 +378,7 @@ export function ResultStep({
         }>
           <div className={assessmentStyles.dataHeader}>
             <div>
-              <p className={assessmentStyles.dataTitle}>KI-Einschätzung</p>
+              <h2 className={assessmentStyles.dataTitle}>KI-Einschätzung</h2>
               <p className={assessmentStyles.dataMetaUrgency}
               >
                 Dringlichkeitsstufe {aiAnswer.assessment.urgency}:{" "}
@@ -403,7 +411,7 @@ export function ResultStep({
         <div className={assessmentStyles.dataPanel}>
           <div className={assessmentStyles.dataHeader}>
             <div>
-              <p className={assessmentStyles.dataTitle}>KI-Begründung</p>
+              <h2 className={assessmentStyles.dataTitle}>KI-Begründung</h2>
               <p className={assessmentStyles.dataMeta}>
                 Hinweise und Vermutungen aus der Auswertung.
               </p>
@@ -456,7 +464,7 @@ export function ResultStep({
         <div className={assessmentStyles.dataPanel}>
           <div className={assessmentStyles.dataHeader}>
             <div>
-              <p className={assessmentStyles.dataTitle}>Gespeicherte Daten</p>
+              <h2 className={assessmentStyles.dataTitle}>Gespeicherte Daten</h2>
               <p className={assessmentStyles.dataMeta}>
                 Ihre Angaben aus dieser Ersteinschätzung.
               </p>
@@ -464,7 +472,7 @@ export function ResultStep({
           </div>
 
           <section className={assessmentStyles.dataSection}>
-            <p className={assessmentStyles.dataSectionTitle}>Basisdaten</p>
+            <h3 className={assessmentStyles.dataSectionTitle}>Basisdaten</h3>
             <div className={assessmentStyles.dataGrid}>
               {renderDataRow("Alter", basisData.age)}
               {renderDataRow("Geschlecht", basisData.gender)}
@@ -474,7 +482,7 @@ export function ResultStep({
           </section>
 
           <section className={assessmentStyles.dataSection}>
-            <p className={assessmentStyles.dataSectionTitle}>Beschwerden</p>
+            <h3 className={assessmentStyles.dataSectionTitle}>Beschwerden</h3>
             <div className={assessmentStyles.dataGrid}>
               <div className={`${assessmentStyles.dataRow} ${assessmentStyles.dataRowWide}`}>
                 <span className={assessmentStyles.dataLabel}>
@@ -492,7 +500,7 @@ export function ResultStep({
           </section>
 
           <section className={assessmentStyles.dataSection}>
-            <p className={assessmentStyles.dataSectionTitle}>Zusatzangaben</p>
+            <h3 className={assessmentStyles.dataSectionTitle}>Zusatzangaben</h3>
             <div className={assessmentStyles.dataGrid}>
               {renderDataRow("Größe", additionalData.height)}
               {renderDataRow("Gewicht", additionalData.weight)}
@@ -539,69 +547,10 @@ export function ResultStep({
         </div>
       )}
 
-      {/* Urgency level 5 requires a clearly visible emergency notice before initiating a direct emergency call. */}
-      {showEmergencyPopup && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(15, 23, 42, 0.55)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-            padding: "16px",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              maxWidth: "440px",
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "24px",
-              boxShadow: "0 20px 40px rgba(15, 23, 42, 0.25)",
-              textAlign: "left",
-            }}
-          >
-            <h2 style={{ marginTop: 0, color: "#b91c1c" }}>
-              Möglicher Notfall
-            </h2>
-
-            <p>
-              Die Angaben deuten auf eine sehr hohe Dringlichkeit hin. Bei
-              akuten oder lebensbedrohlichen Beschwerden sollte sofort der
-              Notruf kontaktiert werden.
-            </p>
-
-            <a
-              href="tel:112"
-              className={assessmentStyles.continueButton}
-              style={{
-                display: "block",
-                textAlign: "center",
-                textDecoration: "none",
-                marginTop: "16px",
-              }}
-            >
-              112 anrufen
-            </a>
-
-            <button
-              type="button"
-              className={assessmentStyles.secondaryButton}
-              onClick={() => setShowEmergencyPopup(false)}
-              style={{ width: "100%", marginTop: "12px" }}
-            >
-              Schließen
-            </button>
-          </div>
-        </div>
-      )}
 
       <hr className={assessmentStyles.dataDivider} />
 
-      {/* ends assesment und takes user back to starting page */}
+      {/* Ends the assessment and takes the user back to the start page. */}
       <button
         type="button"
         className={assessmentStyles.continueButton}

@@ -212,12 +212,11 @@
 }
 
 .formLabel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  display: block;
   color: var(--text-primary);
   font-weight: 700;
-  margin-bottom: var(--space-2);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-1);
   font-size: 1rem;
   line-height: 1.5;
 }
