@@ -117,7 +117,8 @@ export function getSymptomList(gender?: string) {
                     { symptomName: "Juckreiz im Auge", schmerzen: false, symptomValue: "Juckreiz: starker Juckreiz im Auge" , snomedCode: "74776002" },
                     { symptomName: "Brennen im Auge", schmerzen: false, symptomValue: "Brennen im  Auge: Brennendes Gefühl im Auge" , snomedCode: "2070002" },
                     { symptomName: "Extreme Lichtempfindlichkeit ", schmerzen: false, symptomValue: "Photophobie: Schmerzhaftes oder unerträgliches Gefühl bei normalem Tages- oder Raumlicht, zwingt zum Zukneifen der Augen.", snomedCode: "409668002" },
-                    { symptomName: "Verzerrtsehen / Wellige Linien", schmerzen: false, symptomValue: "Metamorphopsie: Gerade Linien erscheinen verbogen, wellig oder verzerrt.", snomedCode: "42134006" }
+                    { symptomName: "Verzerrtsehen / Wellige Linien", schmerzen: false, symptomValue: "Metamorphopsie: Gerade Linien erscheinen verbogen, wellig oder verzerrt.", snomedCode: "42134006" },
+                    { symptomName: "Gelbverfärbung der Haut / Augenweiß", schmerzen: false, symptomValue: "Gelbsucht: Gelbverfärbung des Augenweiß oder der Haut.", snomedCode: "18165001" }, 
                 ]
             },
             {
@@ -232,6 +233,7 @@ export function getSymptomList(gender?: string) {
                         { symptomName: "Sodbrennen (Brennen hinter Brustbein)", schmerzen: true, symptomValue: "Sodbrennen: Brennendes Gefühl hinter dem Brustbein.", snomedCode: "16331000" },
                         { symptomName: "Saures Aufstoßen von Magensaft", schmerzen: false, symptomValue: "Refluxbeschwerden: Rückfluss von Magensaft oder Speiseresten bis in den Mundraum.", snomedCode: "698065002" },
                         { symptomName: "Schluckstörung (Nahrung bleibt stecken)", schmerzen: true, symptomValue: "Schluckstörung: Das Gefühl, dass Nahrung im Hals oder in der Brust „stecken bleibt“.", snomedCode: "40739000" },
+                        { symptomName: "Schmerz direkt beim Schluckvorgang", schmerzen: true, symptomValue: "Schmerz beim Schlucken: Stechender Schmerz direkt beim Schluckvorgang.", snomedCode: "41311003" },
                         { symptomName: "Kloßgefühl im Hals", schmerzen: false, symptomValue: "Kloßgefühl: Ein ständiges Druck- oder Fremdkörpergefühl im Halsbereich.", snomedCode: "267103008" },
                         { symptomName: "Schmerz direkt beim Schluckvorgang", schmerzen: true, symptomValue: "Schmerz beim Schlucken: Schmerz direkt beim Schluckvorgang.", snomedCode: "30233002" }
                     ]
@@ -348,6 +350,8 @@ export function getSymptomList(gender?: string) {
                     [
                         { symptomName: "Kloß im Hals ohne echtes Hindernis", schmerzen: false, symptomValue: "Globusgefühl: „Kloß im Hals“ ohne echtes Hindernis beim Schlucken", snomedCode: "267103008" },
                         { symptomName: "Gefühl, Schleim läuft den Rachen runter", schmerzen: false, symptomValue: "Ständiges Gefühl, Schleim laufe von oben den Rachen runter", snomedCode: "75803007" },
+                        { symptomName: "Schluckstörung (Nahrung bleibt stecken)", schmerzen: true, symptomValue: "Schluckstörung: Das Gefühl, dass Nahrung im Hals oder in der Brust „stecken bleibt“.", snomedCode: "40739000" },
+                        { symptomName: "Schmerz direkt beim Schluckvorgang", schmerzen: true, symptomValue: "Schmerz beim Schlucken: Stechender Schmerz direkt beim Schluckvorgang.", snomedCode: "41311003" },
                         { symptomName: "Räusperzwang (Ständiger Drang frei zu machen)", schmerzen: false, symptomValue: "Räusperzwang: Ständiger Drang, den Hals freizumachen", snomedCode: "248589007" },
                         { symptomName: "Trockenes Kratzen im Hals ", schmerzen: false, symptomValue: "Trockenes Kratzen: unangenehm trockenes Kratzen im Hals", snomedCode: "267102003" }
                     ]
@@ -531,7 +535,9 @@ export function getSymptomList(gender?: string) {
                         { symptomName: "Tastbare, schmerzhafte Lymphknotenschwellung", schmerzen: true, symptomValue: "Deutlich tastbare, schmerzhafte oder geschwollene Knubbel am Hals, unter den Achseln oder in der Leiste (Lymphknoten)", snomedCode: "30746006" },
                         { symptomName: "Verwirrtheit, Schläfrigkeit & Atembeschwerden", schmerzen: false, symptomValue: "Plötzliche, schwere Verwirrtheit, extreme Schläfrigkeit, Atemnot und sehr schneller Herzschlag bei einer Infektion", snomedCode: "40917007" },
                         { symptomName: "Rote/lila Hautpunkte (nicht verblassend)", schmerzen: false, symptomValue: "Auftreten von roten oder lila Hautpunkten, die bei Druck (z. B. mit einem Glas) nicht verblassen", snomedCode: "423716004" },
-                        { symptomName: "Plötzliche, große blaue Flecken ohne Stoßen", schmerzen: false, symptomValue: "Plötzliches Auftreten von großen, blauen Flecken am Körper, ohne dass man sich gestoßen oder verletzt hat", snomedCode: "302228007" }
+                        { symptomName: "Plötzliche, große blaue Flecken ohne Stoßen", schmerzen: false, symptomValue: "Plötzliches Auftreten von großen, blauen Flecken am Körper, ohne dass man sich gestoßen oder verletzt hat", snomedCode: "302228007" },
+                        { symptomName: "Gelbverfärbung der Haut / Augenweiß", schmerzen: false, symptomValue: "Gelbsucht: Gelbverfärbung des Augenweiß oder der Haut.", snomedCode: "18165001" }, 
+                        { symptomName: "Fieber (38,5 °C oder höher)", schmerzen: false, symptomValue: "Fieber: Körpertemperatur von 38,5 °C oder höher.", snomedCode: "386661006" }, 
                     ]
             },
         ]
