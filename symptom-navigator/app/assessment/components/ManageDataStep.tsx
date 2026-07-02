@@ -226,7 +226,7 @@ export function ManageDataStep({ step, setStep }: ManageDataStepProps) {
 
   return (
     <div className={assessmentStyles.resultBox}>
-      <p className={assessmentStyles.selectedText}>Datenverwaltung</p>
+      <h1 className={assessmentStyles.selectedText}>Datenverwaltung</h1>
 
       {/* Enter, validate, and use the access code to retrieve or delete stored data. */}      <div className={assessmentStyles.dataPanel}>
         <div className={assessmentStyles.dataHeader}>
