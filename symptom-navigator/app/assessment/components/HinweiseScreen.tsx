@@ -73,7 +73,7 @@ export function HinweiseScreen({
           {/* Clearly communicate the purpose and medical limitations of the application. */}
           <p className={homeStyles.warningText}>
             Diese Anwendung unterstützt Sie nur bei einer ersten Einschätzung
-            Ihrer Beschwerden.
+            von Beschwerden.
           </p>
 
           <p className={homeStyles.warningText}>
