@@ -393,7 +393,7 @@ export function getSymptomList(gender?: string) {
                 step: "Brust rechts",
                 symptoms:
                     [
-                        { symptomName: "Engegefühl, massiver Druck oder Brennen", schmerzen: true, symptomValue: "Akuter Brustschmerz: Dumpfer, drückender oder brennender Schmerz („Elefant auf der Brust“), evtl. Ausstrahlung in Arm/Kiefer (Sofortiger Notfall!).", snomedCode: "23924001" },
+                        { symptomName: "Engegefühl, massiver Druck oder Brennen", schmerzen: true, symptomValue: "Akuter Brustschmerz: Dumpfer, drückender oder brennender Schmerz („Elefant auf der Brust“), evtl. Ausstrahlung in Arm/Kiefer.", snomedCode: "23924001" },
                         { symptomName: "Atemnot / Luftnot schon im Ruhezustand", schmerzen: false, symptomValue: "Ruhedyspnoe: Akut aufgetretene, schwere Atembeschwerden oder das Gefühl, nicht genug Sauerstoff zu bekommen.", snomedCode: "161941007" },
                         { symptomName: "Stechender, atemabhängiger Brustschmerz", schmerzen: true, symptomValue: "Pleuritischer Schmerz: Schmerz verstärkt sich messerscharf beim tiefen Einatmen oder Husten.", snomedCode: "274664007" },
                         { symptomName: "Herzrasen, Herzstolpern oder Aussetzer", schmerzen: false, symptomValue: "Palpitationen: Spürbar unregelmäßiger, stolpernder oder extrem beschleunigter Herzschlag im Brustkorb.", snomedCode: "3424008" },
