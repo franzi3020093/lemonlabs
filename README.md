@@ -3,7 +3,7 @@ MEP Projekt
 
 # Änderungsvorschläge
 Bitte keine gemeinsamen Textdateien ändern, ohne Absprache mit dem Team.  
-Am bestenn vor Ort, wenn nicht Anwesend Vorschläge bitte auf Discord in "änderungsvorschläge".
+Am besten vor Ort, wenn nicht Anwesend Vorschläge bitte auf Discord in "änderungsvorschläge".
 
 # Hinweis zum Code
 Wir arbeiten zum coden auf dem branch develop  
