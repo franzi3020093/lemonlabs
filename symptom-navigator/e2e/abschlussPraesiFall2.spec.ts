@@ -26,7 +26,7 @@ test("Fall 2: Fieber, Schüttelfrost, Verwirrtheit, Atemnot -> Sepsis-Verdacht l
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
   // Fieber jetzt eigene Checkbox in Allgemein
-  await page.getByLabel("Fieber", { exact: true }).check();
+  await page.getByLabel("Fieber (38,5 °C oder höher)", { exact: true }).check();
   // Deckt Schüttelfrost ab
   await page.getByLabel("Schüttelfrost / Unkontrollierbares Zittern", { exact: true }).check();
   // Deckt Verwirrung + Atemschwierigkeiten ab (kombinierte Sepsis-Checkbox)

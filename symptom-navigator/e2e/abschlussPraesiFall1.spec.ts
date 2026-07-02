@@ -30,11 +30,10 @@ test("Fall 1: Mandelentzündung) -> Dringlichkeit 2-3", async ({ page }) => {
 
   // --- Region: Hals (deckt jetzt sowohl Mandeln als auch Schluckbeschwerden ab) ---
   await page.getByRole("button", { name: "Hals", exact: true }).first().click();
-  await page.getByRole("button", { name: "Hals", exact: true }).last().click();
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
   // Kategorie "Mandeln & Mundhöhle" (step: halsMandeln)
-  await page.getByRole("button", { name: "Mandeln & Mundhöhle" }).click();
+  await page.getByRole("button", { name: /Mandeln/ }).click();
 
   await page.getByLabel("Kloßige Sprache", { exact: true }).check();
 
@@ -48,21 +47,20 @@ test("Fall 1: Mandelentzündung) -> Dringlichkeit 2-3", async ({ page }) => {
   // weitere Symptome ergänzen
   await page.getByRole("button", { name: "ja" }).click();
 
-  // --- Region: Hals -> Kategorie "Speiseröhre (Schluckbeschwerden)" ---
   await page.getByRole("button", { name: "Hals", exact: true }).first().click();
-  await page.getByRole("button", { name: "Hals", exact: true }).last().click();
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
-  await page.getByRole("button", { name: "Speiseröhre (Schluckbeschwerden)" }).click();
+  await page.getByRole("button", { name: "Rachenwand & Schlucken" }).click();
 
-  await page.getByLabel("Schluckstörung (Nahrung bleibt stecken)", { exact: true }).check();
-  await page
-    .getByLabel("Schmerzstärke für Schluckstörung (Nahrung bleibt stecken)")
-    .fill("5");
-  await page.getByLabel("Schmerz direkt beim Schluckvorgang", { exact: true }).check();
-  await page
-    .getByLabel("Schmerzstärke für Schmerz direkt beim Schluckvorgang")
-    .fill("6");
+// erstes Symptom anhaken -> zugehöriger Slider ist der erste (nth 0) im DOM
+await page.getByLabel("Schluckstörung (Nahrung bleibt stecken)", { exact: true }).check();
+await page.locator('input[type="range"]').nth(0).fill("5");
+
+// zweites Symptom anhaken -> jetzt sind 2 Slider sichtbar, der neue ist nth(1)
+await page.getByLabel("Schmerz direkt beim Schluckvorgang", { exact: true }).check();
+await page.locator('input[type="range"]').nth(1).fill("6");
+
+
   await page.getByRole("button", { name: "Weiter" }).click();
 
   // weitere Symptome ergänzen (Fieber jetzt über Allgemein)
@@ -72,7 +70,7 @@ test("Fall 1: Mandelentzündung) -> Dringlichkeit 2-3", async ({ page }) => {
   await page.getByRole("button", { name: "Allgemein (ganzer Körper)" }).click();
   await page.getByRole("button", { name: "Weiter" }).last().click();
 
-  await page.getByLabel("Fieber", { exact: true }).check();
+  await page.getByLabel("Fieber (38,5 °C oder höher)", { exact: true }).check();
   await page.getByRole("button", { name: "Weiter" }).click();
 
   // keine weiteren Symptome
