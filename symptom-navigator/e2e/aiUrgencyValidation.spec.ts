@@ -37,7 +37,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     // Verspannung & Bewegungsschmerz
     await page.getByRole("button", { name: /Verspannung & Bewegungsschmerz/ }).click();
-    await page.getByLabel("Schmerzhafte Muskelverhärtung (Myogelose)").check();
+    await page.getByLabel("Schmerzhafte Muskelverhärtung").check();
     await page.locator('input[type="range"]').fill("5");
     await page.getByLabel("Eingeschränkte Drehung / Steifer Hals").check();
     await page.getByRole("button", { name: "Weiter" }).click();
@@ -66,7 +66,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test Medium Urgency] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(2);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(3);
@@ -94,12 +94,12 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
     await page.getByRole("button", { name: "Weiter" }).last().click();
 
     // Engegefühl (Red Flag)
-    await page.getByLabel("Engegefühl, massiver Druck oder Brennen (Red Flag)").check();
+    await page.getByLabel("Engegefühl, massiver Druck oder Brennen").check();
     await page.locator('input[type="range"]').fill("9");
     await page.getByRole("button", { name: "Weiter" }).click();
 
     await page.getByRole("button", { name: "nein" }).click();
-    
+
     // Zusatzangaben: Beschwerden werden schlimmer
     await page.getByRole("combobox", { name: "Werden die Beschwerden stärker?" }).selectOption("Ja");
     await page.getByRole("button", { name: "weiter" }).click();
@@ -125,7 +125,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test High Urgency] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(4);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(5);
@@ -153,7 +153,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     // Aussenohr -> Starkes Jucken im Gehörgang
     await page.getByRole("button", { name: /aussenohr/i }).click();
-    await page.getByLabel("Starkes Jucken im Gehörgang").check();
+    await page.getByLabel("Juckendes Ohr").check();
     await page.getByRole("button", { name: "Weiter" }).click();
 
     await page.getByRole("button", { name: "nein" }).click();
@@ -180,7 +180,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test Low Urgency] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(1);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(2);
@@ -206,8 +206,8 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
     await page.getByRole("button", { name: "Kopf", exact: true }).last().click();
     await page.getByRole("button", { name: "Weiter" }).last().click();
 
-    // Dringende Warnsignale (Kopf) -> Explosionsartiger Vernichtungsschmerz
-    await page.getByRole("button", { name: /Dringende Warnsignale \(Kopf\)/ }).click();
+    // Allgemein starke Schmerzen (Kopf) -> Explosionsartiger Vernichtungsschmerz
+    await page.getByRole("button", { name: "Allgemein starke Schmerzen" }).click();
     await page.getByLabel("Explosionsartiger Vernichtungsschmerz").check();
     await page.locator('input[type="range"]').fill("10");
     await page.getByRole("button", { name: "Weiter" }).click();
@@ -236,7 +236,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test Extreme Urgency] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(4);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(5);
@@ -295,7 +295,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test Very Low Urgency] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(1);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(2);
@@ -351,7 +351,7 @@ test.describe("KI-Dringlichkeitsstufen Validierung", () => {
 
     const recommendation = await getRecommendationFromDb(caseId);
     expect(recommendation).not.toBeNull();
-    
+
     console.log(`[Test High Urgency Magen] Empfangene Dringlichkeitsstufe: ${recommendation.urgency_level}`);
     expect(recommendation.urgency_level).toBeGreaterThanOrEqual(4);
     expect(recommendation.urgency_level).toBeLessThanOrEqual(5);
